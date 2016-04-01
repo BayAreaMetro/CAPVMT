@@ -19,8 +19,12 @@
     <!-- build:css({.tmp,client}) app/app.css -->
       <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
+      <link rel="stylesheet" href="app/about/about.css">
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/app.css">
+      <link rel="stylesheet" href="app/data/data.css">
+      <link rel="stylesheet" href="app/explorer/explorer.css">
+      <link rel="stylesheet" href="app/feedback/feedback.css">
       <link rel="stylesheet" href="app/main/main.css">
       <link rel="stylesheet" href="components/footer/footer.css">
       <link rel="stylesheet" href="components/modal/modal.css">
@@ -34,9 +38,12 @@
 
     <!-- Add your site or application content here -->
     <navbar></navbar>
-    <div ui-view=""></div>
+    <div id="mainDIV" class="site-wrapper">
+        <div ui-view=""></div>
+    </div>          
     <footer></footer>
-
+                   
+        
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -63,7 +70,8 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
-      <script src="bower_components/wellknown/index.js"></script>
+      <script src="bower_components/Wicket/wicket.js"></script>
+      <script src="bower_components/Wicket/wicket-gmap3.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
@@ -72,15 +80,23 @@
       <script src="app/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="components/auth/auth.service.js"></script>
+      <script src="app/feedback/feedback.js"></script>
+      <script src="app/account/settings/settings.controller.js"></script>
+      <script src="app/account/signup/signup.controller.js"></script>
       <script src="app/admin/admin.controller.js"></script>
-      <script src="app/account/account.js"></script>
+      <script src="app/about/about.controller.js"></script>
       <script src="app/admin/admin.router.js"></script>
       <script src="app/app.constant.js"></script>
+      <script src="app/data/data.controller.js"></script>
+      <script src="app/data/data.js"></script>
+      <script src="app/explorer/explorer.controller.js"></script>
+      <script src="app/explorer/explorer.js"></script>
+      <script src="app/feedback/feedback.controller.js"></script>
+      <script src="app/about/about.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
-      <script src="app/account/settings/settings.controller.js"></script>
-      <script src="app/account/login/login.controller.js"></script>
+      <script src="app/account/account.js"></script>
+      <script src="components/auth/auth.service.js"></script>
       <script src="components/auth/interceptor.service.js"></script>
       <script src="components/auth/router.decorator.js"></script>
       <script src="components/auth/user.service.js"></script>
@@ -89,7 +105,7 @@
       <script src="components/mongoose-error/mongoose-error.directive.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
       <script src="components/navbar/navbar.directive.js"></script>
-      <script src="app/account/signup/signup.controller.js"></script>
+      <script src="app/account/login/login.controller.js"></script>
       <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->

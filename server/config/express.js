@@ -17,9 +17,9 @@ import lusca from 'lusca';
 import config from './environment';
 import passport from 'passport';
 import session from 'express-session';
-import connectMongo from 'connect-mongo';
-import mongoose from 'mongoose';
-var mongoStore = connectMongo(session);
+// import connectMongo from 'connect-mongo';
+// import mongoose from 'mongoose';
+// var mongoStore = connectMongo(session);
 
 export default function(app) {
   var env = app.get('env');
@@ -40,11 +40,11 @@ export default function(app) {
   app.use(session({
     secret: config.secrets.session,
     saveUninitialized: true,
-    resave: false,
-    store: new mongoStore({
-      mongooseConnection: mongoose.connection,
-      db: 'capvmt'
-    })
+    resave: false//,
+    // store: new mongoStore({
+    //   mongooseConnection: mongoose.connection,
+    //   db: 'capvmt'
+    // })
   }));
 
   /**

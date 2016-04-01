@@ -1,27 +1,269 @@
-.thing-form {
-  margin: 20px 0;
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: none;
 }
 
-#banner {
-  border-bottom: none;
-  margin-top: -20px;
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: none;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
 }
 
-#banner h1 {
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #444;  
+}
+body {
+  color: #fff;  
 }
 
-.hero-unit {
-  position: relative;
-  padding: 30px 15px;
-  color: #F5F5F5;
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: calc(100% - 120px); /* For at least Firefox */
+  min-height: calc(100% - 120px);  
+}
+
+
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.cover-container {
+  margin-top: 30%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 0px;
+}
+
+/*
+ * Header
+ */
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a {
+  padding-right: 0px;
+  padding-left: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+  padding-right: 8px;
+  padding-left: 10px;
+  letter-spacing: 1px;
+}
+
+/*navbar overides*/
+.navbar-default .navbar-brand {
+    color: #506ea7;
+}
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(0,0,0,.5);
+}
+.navbar-default .navbar-nav > li > a {
+    color: #506ea7;
+    letter-spacing: 1px;
+}
+.navbar{
+  margin-bottom: 0px;
+}
+
+/*Extra markup and styles for page content*/
+.fill{
+  position: absolute;
+  top:0;
+  bottom: 50px;
+}
+.mapContainer{
+  position: absolute;
+  top:0;
+  bottom: 50px;
+  background-color: #fff;
+}
+.dataContainer{
+  position: absolute;
+  top:50px;
+  bottom: 50px;
+  background-color: #fff;
+  background: url('../../assets/images/EarthInHand.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.margin-top-50{
+  margin-top: 50px;
+}
+.margin-top-100{
+  margin-top: 100px;
+}
+.margin-top-200{
+  margin-top: 200px;
+}
+
+.shadowText {
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.spacedText-2{
+  letter-spacing: 2px;
+}
+.text-align-center{
   text-align: center;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  background: #4393B9;
+}
+.text-bold{
+  font-weight: bold;
+}
+.txtBlack{
+  color: #333;
 }
 
-.navbar-text {
-  margin-left: 15px;
+.hmBackground{
+  background: url('../../assets/images/EarthInHand.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+        
 }
+
+.loginBackground{
+  background: url('../../assets/images/bayareahills.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+  
+}
+
+
+.registerBackground{
+  background: url('../../assets/images/baybridge.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+}
+
+.feedbackBackground{
+  background: url('../../assets/images/baybridge_newold.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+  letter-spacing: 1px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner-middle {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 700px;
+  }
+}
+

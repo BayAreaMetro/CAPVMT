@@ -30,16 +30,16 @@ var all = {
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
     session: 'capvmt-secret'
-  },
+  }//,
 
   // MongoDB connection options
-  mongo: {
-    options: {
-      db: {
-        safe: true
-      }
-    }
-  }
+  // mongo: {
+  //   options: {
+  //     db: {
+  //       safe: true
+  //     }
+  //   }
+  // }
 };
 
 // Export the config object based on the NODE_ENV

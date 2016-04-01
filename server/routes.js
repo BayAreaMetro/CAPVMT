@@ -13,8 +13,7 @@ export default function(app) {
   app.use('/api/mapdata', require('./api/mapdata'));
   app.use('/api/places', require('./api/places'));
   app.use('/api/vmt', require('./api/vmt'));
-  app.use('/api/things', require('./api/thing'));
-  app.use('/api/users', require('./api/user'));
+  //app.use('/api/users', require('./api/user'));
 
   app.use('/auth', require('./auth'));
 

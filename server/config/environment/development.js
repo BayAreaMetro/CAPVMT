@@ -44,14 +44,14 @@ module.exports = {
     github: {
         user: process.env.GITHUB_USER,
         access: process.env.GITHUB_PWD
-    },
+    }//,
 
   // MongoDB connection options
-  mongo: {
-    uri: 'mongodb://localhost/capvmt-dev'
-  },
+  // mongo: {
+  //   uri: 'mongodb://localhost/capvmt-dev'
+  // },
 
-  // Seed database on startup
-  seedDB: true
+  // // Seed database on startup
+  // seedDB: false
 
 };
