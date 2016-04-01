@@ -34,8 +34,4 @@ class NavbarController {
 }
 
 angular.module('capvmtApp')
-  .controller('NavbarController', NavbarController, function ($scope, $http){
-    $scope.changeBG = function (a){
-      console.log(a);
-    };
-  });
+  .controller('NavbarController', NavbarController);
