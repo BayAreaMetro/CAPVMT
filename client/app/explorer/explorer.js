@@ -5,6 +5,7 @@ angular.module('capvmtApp')
     $stateProvider
       .state('explorer', {
         url: '/explorer',
-        template: '<explorer></explorer>'
+        templateUrl: 'app/explorer/explorer.html',
+        controller:'ExplorerCtrl'
       });
   });

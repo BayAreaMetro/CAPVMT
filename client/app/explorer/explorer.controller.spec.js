@@ -5,12 +5,13 @@ describe('Component: ExplorerComponent', function () {
   // load the controller's module
   beforeEach(module('capvmtApp'));
 
-  var ExplorerComponent, scope;
+  
+  var ExplorerCtrl, scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($componentController, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ExplorerComponent = $componentController('ExplorerComponent', {
+    ExplorerCtrl = $controller('ExplorerCtrl', {
       $scope: scope
     });
   }));
