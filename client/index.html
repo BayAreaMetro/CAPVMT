@@ -71,16 +71,18 @@
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
       <script src="bower_components/Wicket/wicket.js"></script>
+      <script src="bower_components/Wicket/wicket-arcgis.js"></script>
       <script src="bower_components/Wicket/wicket-gmap3.js"></script>
+      <script src="bower_components/Wicket/wicket-leaflet.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
-      <script src="app/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
+      <script src="app/admin/admin.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/feedback/feedback.js"></script>
+      <script src="app/account/login/login.controller.js"></script>
       <script src="app/account/settings/settings.controller.js"></script>
       <script src="app/account/signup/signup.controller.js"></script>
       <script src="app/admin/admin.controller.js"></script>
@@ -92,10 +94,10 @@
       <script src="app/explorer/explorer.controller.js"></script>
       <script src="app/explorer/explorer.js"></script>
       <script src="app/feedback/feedback.controller.js"></script>
-      <script src="app/about/about.js"></script>
+      <script src="app/feedback/feedback.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
-      <script src="app/account/account.js"></script>
+      <script src="app/about/about.js"></script>
       <script src="components/auth/auth.service.js"></script>
       <script src="components/auth/interceptor.service.js"></script>
       <script src="components/auth/router.decorator.js"></script>
@@ -105,7 +107,13 @@
       <script src="components/mongoose-error/mongoose-error.directive.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
       <script src="components/navbar/navbar.directive.js"></script>
-      <script src="app/account/login/login.controller.js"></script>
+      <script src="components/services/baseurl/baseurl.service.js"></script>
+      <script src="components/services/dataservices/dataservices.service.js"></script>
+      <script src="components/services/mapdata/mapdata.service.js"></script>
+      <script src="components/services/modelruns/modelruns.service.js"></script>
+      <script src="components/services/places/places.service.js"></script>
+      <script src="components/services/vmt/vmt.service.js"></script>
+      <script src="app/account/account.js"></script>
       <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
