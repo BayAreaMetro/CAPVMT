@@ -124,7 +124,7 @@ var request = new sql.Request(config.mssql.connection);
 exports.getVMTtaz = function(req,res){
 var place = parseInt(req.params.id);
 var request = new sql.Request(config.mssql.connection);
-    var query = "SELECT City_Domain as ID, taz_key, Shape.ToString() as WKT FROM CAPVMT.[TAZ_PLACES_WGS84] WHERE (ID = " + place + ")";
+    var query = "SELECT City_Domain, taz_key, Shape.ToString() as WKT FROM CAPVMT.[TAZ_PLACES_WGS84] WHERE (City_Domain = " + place + ")";
     request.query(query, function(err, vmttaz) {
         if (err) {
             return handleError(res, err);

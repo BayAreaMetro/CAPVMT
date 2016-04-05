@@ -4,9 +4,11 @@
 angular.module('capvmtApp')
     .controller('ExplorerCtrl', function ($scope, mapdata) {
         var features = [];
-        var obj = [];
+        var obj;
         var gmap;
         var i, w, v;
+        $scope.tazGeo = {};
+        var bounds = new google.maps.LatLngBounds();
         /**
          * Clears the map contents.
          */
@@ -36,32 +38,158 @@ angular.module('capvmtApp')
          */
         $scope.mapIt = function (id) {
             id=1;
+            wkt = new Wkt.Wkt();
+            $scope.mappedFeature = [];
+            
             mapdata.getVMTtaz(id).success(function(response){
                 if (response.length > 0) {
                         //do something here if needed...
+                        $scope.tazGeo = response;
+                		//console.log($scope.tazGeo[0].WKT);
+                		
                     }
-                $scope.tazGeo = {};
-                $scope.tazGeo = response;
-                console.log($scope.tazGeo[0].WKT);
+                    for (var i = $scope.tazGeo.length - 1; i >= 0; i--) {
+                        if ($scope.tazGeo[i].WKT) {
+                              //$scope.mappedFeature.push($scope.tazGeo[0].WKT); 
+                              $scope.addToMap($scope.tazGeo[i].WKT);
+                              
+                                               
+                            }
+                            
+                        } 
+                
+                
+           
                 
             }).error(function(error){
                 console.log(error);
             });
             
-                    for (var i = response.length - 1; i >= 0; i--) {
-                        if (response[i].WKT) {
+                    
                             
-                            $scope.COCs.addLayer(returnWKTFeature(response[i].WKT));
-                            
-                            });
-                            
-                        } else {                           
-
-                            
-                        }
-                    }
+                        
+                    
             
         };
+
+        $scope.addToMap = function(layer){
+				//console.log(layer);
+                
+                try{
+					wkt.read(layer);
+                } catch (e1){
+                    try {
+                        wkt.read(el.value.replace('\n', '').replace('\r', '').replace('\t', ''));
+						console.log(el);
+                    } catch (e2) {
+                        if (e2.name === 'WKTError') {
+                            alert('Wicket could not understand the WKT string you entered. Check that you have parentheses balanced, and try removing tabs and newline characters.');
+                            return;
+                        }
+                    }
+                }
+                
+                obj = wkt.toObject(gmap.defaults); // Make an object
+                
+                if (Wkt.isArray(obj)) { // Distinguish multigeometries (Arrays) from objects
+                console.log("This object is an array...");
+                for (i in obj) {
+                    if (obj.hasOwnProperty(i) && !Wkt.isArray(obj[i])) {
+                        //obj[i].setEditable(false);
+                        obj[i].setMap(gmap);
+                        features.push(obj[i]);
+						//get the extent of the features
+                        if(wkt.type === 'point' || wkt.type === 'multipoint')
+                        	bounds.extend(obj[i].getPosition());
+                        else
+                        	console.log("This is a multi-part polygon...")
+                        	obj[i].getPath().forEach(function(element,index){bounds.extend(element)});
+                    }
+                }
+                
+                features = features.concat(obj);
+                features.push(obj);
+                
+
+            } else {
+            	
+            	//obj.setEditable(false);
+                obj.setMap(gmap); // Add it to the map
+				
+                features.push(obj);
+
+                if(wkt.type === 'point' || wkt.type === 'multipoint')
+                	bounds.extend(obj.getPosition());
+                else
+                	obj.getPath().forEach(function(element,index){bounds.extend(element)});
+                
+            }
+			
+             // Pan the map to the feature
+            gmap.fitBounds(bounds);
+
+                return obj;
+        };
+		/**
+         * Generates the WKT Feature layer for the map.
+         * @return  {Object}    Some sort of geometry object
+         */
+        
+        //Reads WKT and returns leaflet layer
+        function returnWKTFeature(layer) {
+            //console.log(layer);
+            if (layer) {
+                wkt = new Wkt.Wkt();
+                try { // Catch any malformed WKT strings
+                    wkt.read(layer);
+
+                } catch (e1) {
+                    try {
+                        wkt.read(el.value.replace('\n', '').replace('\r', '').replace('\t', ''));
+
+                    } catch (e2) {
+                        if (e2.name === 'WKTError') {
+                            alert('Wicket could not understand the WKT string you entered. Check that you have parentheses balanced, and try removing tabs and newline characters.');
+                            return;
+                        }
+                    }
+                }
+                obj = wkt.toObject(gmap.defaults); // Make an object
+                var bounds = new google.maps.LatLngBounds();
+
+            if (Wkt.isArray(obj)) { // Distinguish multigeometries (Arrays) from objects
+                for (i in obj) {
+                    if (obj.hasOwnProperty(i) && !Wkt.isArray(obj[i])) {
+                        obj[i].setMap(gmap);
+                        features.push(obj[i]);
+
+                        if(wkt.type === 'point' || wkt.type === 'multipoint')
+                        	bounds.extend(obj[i].getPosition());
+                        else
+                        	obj[i].getPath().forEach(function(element,index){bounds.extend(element)});
+                    }
+                }
+
+                features = features.concat(obj);
+            } else {
+                obj.setMap(gmap); // Add it to the map
+                features.push(obj);
+
+                if(wkt.type === 'point' || wkt.type === 'multipoint')
+                	bounds.extend(obj.getPosition());
+                else
+                	obj.getPath().forEach(function(element,index){bounds.extend(element)});
+            }
+
+            // Pan the map to the feature
+            gmap.fitBounds(bounds);
+
+                return obj;
+            }
+
+        }
+
+
         
         /**
          * Application entry point.
@@ -75,7 +203,7 @@ angular.module('capvmtApp')
                 defaults: {
                     icon: 'red_dot.png',
                     shadow: 'dot_shadow.png',
-                    editable: true,
+                    editable: false,
                     strokeColor: '#990000',
                     fillColor: '#EEFFCC',
                     fillOpacity: 0.6
