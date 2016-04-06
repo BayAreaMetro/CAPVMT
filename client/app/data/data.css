@@ -1,0 +1,21 @@
+select, select.form-control {
+    border: 0;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 2px 14px;    
+    margin-left: 10px;
+    /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+    */
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    box-shadow: inset 0 -1px 0 #ddd;
+    font-size: 12px;
+    line-height: 1;
+    width: auto !important;
+    border: 1px solid #ccc;
+    height: 34px;
+    color: #777;
+}

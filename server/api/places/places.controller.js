@@ -107,7 +107,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Places
 exports.index = function(req,res){
-http://localhost:9000/api/places
+//http://localhost:9000/api/places
 var request = new sql.Request(config.mssql.connection);
     var query = "SELECT ID as value, CityName as text FROM Place_Lookup";
     request.query(query, function(err, places) {
