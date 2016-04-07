@@ -23,7 +23,7 @@
       </ul>
       <form class="navbar-form">
         <div class="form-group">
-		   <select class="input-sm form-control">
+		   <select class="input-sm form-control" ng-model="selectedModelRun" ng-change="setModelRun(selectedModelRun)">
                                                     <option value="">Choose a Scenario Year </option>
                                                     <option ng-repeat="item in Years" ng-value="item.value">{{item.text}}</option>
                                                 </select>
@@ -33,7 +33,7 @@
                                                     <option ng-repeat="item in Places" ng-value="item.value">{{item.text}}</option>
                                                 </select>
         </div>
-        <button type="submit" class="btn btn-primary">Get Data</button>
+        <button type="submit" class="btn btn-primary" ng-click="getData()">Get Data</button>
       </form>
       
     </div><!-- /.navbar-collapse -->
@@ -74,14 +74,14 @@
 
                                         </td>
                                         <td>
-                                            <span id="Persons0" class="pull-right" />
+                                            <span id="Persons0"  class="pull-right" />
                                         </td>
 
                                         <td>
                                             <span id="Inside0" class="pull-right" />
                                         </td>
                                         <td>
-                                            <span id="Inside0pct" class="pull-right">0%</span>
+                                            <span id="Inside0pct"  class="pull-right">0%</span>
                                         </td>
                                         <td>
                                             <span id="Partially_In0" class="pull-right" />

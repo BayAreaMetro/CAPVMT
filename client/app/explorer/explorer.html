@@ -16,9 +16,9 @@
           <ul class="nav navbar-nav">
           </ul>
           <ul class="nav navbar-nav navbar-right">            
-            <li><a href="#" ng-click="mapIt(22,'place')">Place Boundary</a></li>
-            <li><a href="#" ng-click="mapIt(22,'taz')">TAZ Boundaries</a></li>
-            <li class="active"><a href="#" ng-click="mapIt(22,'utaz')">Urbanized TAZ Boundaries</a></li>            
+            <li><a href="#" ng-click="mapIt('place')">Place Boundary</a></li>
+            <li ng-class="active"><a href="#" ng-click="mapIt('taz')">TAZ Boundaries</a></li>
+            <li><a href="#" ng-click="mapIt('utaz')">Urbanized TAZ Boundaries</a></li>            
           </ul>
         </div><!--/.nav-collapse -->
       </div>

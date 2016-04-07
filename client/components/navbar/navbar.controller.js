@@ -6,10 +6,10 @@ class NavbarController {
     'title': 'Home',    
     'state': 'main'
   },
-  {
-    'title': 'Map',    
-    'state': 'explorer'
-  },
+  // {
+  //   'title': 'Map',    
+  //   'state': 'explorer'
+  // },
   {
     'title': 'Data',    
     'state': 'data'

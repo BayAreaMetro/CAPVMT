@@ -30,14 +30,15 @@ angular.module('capvmtApp')
          * Maps the current contents of the textarea.
          * @return  {Object}    Some sort of geometry object
          */
-        $scope.mapIt = function (id, ft) {
+        $scope.mapIt = function (ft) {
             $scope.clearMap();
             wkt = new Wkt.Wkt();
             //$scope.mappedFeature = [];
             
+            var placeID = $scope.selectedCity[0].id;
             switch(ft){
             	case 'taz':
-            	mapdata.getVMTtaz(id).success(function(response){
+            	mapdata.getVMTtaz(placeID).success(function(response){
                 if (response.length > 0) {
                         //do something here if needed...
                         $scope.tazGeo = response;
@@ -59,7 +60,7 @@ angular.module('capvmtApp')
             //end of getVMTtaz
             break;
             case 'utaz':
-            mapdata.getVMTurbantaz(id).success(function(response){
+            mapdata.getVMTurbantaz(placeID).success(function(response){
                 if (response.length > 0) {
                         //do something here if needed...
                         $scope.tazGeo = response;
@@ -81,7 +82,7 @@ angular.module('capvmtApp')
             //end of getVMTutaz
             break;
             case 'place':
-            mapdata.getVMTplace(id).success(function(response){
+            mapdata.getVMTplace(placeID).success(function(response){
                 if (response.length > 0) {
                         //do something here if needed...
                         $scope.tazGeo = response;
@@ -182,7 +183,7 @@ angular.module('capvmtApp')
                     icon: 'red_dot.png',
                     shadow: 'dot_shadow.png',
                     editable: false,
-                    strokeColor: '#990000',
+                    strokeColor: '#999999',
                     fillColor: '#EEFFCC',
                     fillOpacity: 0.6
                 },
@@ -207,7 +208,7 @@ angular.module('capvmtApp')
                 if (!gmap.loaded) {
                     gmap.loaded = true;
                     //Load WKT Features to map
-                    $scope.mapIt($scope.selectedCity[0].id,'taz');
+                    $scope.mapIt('taz');
                     // if($scope.selectedCity[0].id.length > 0){
                     // 	$scope.mapIt($scope.selectedCity[0].id,'taz');
                     // }
