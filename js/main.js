@@ -4,42 +4,55 @@ $(document).ready(function() {
      * [Sample function that passes in TRSID and SelCycle on button click]
      * @return {[type]} [JSON array of assets]
      */
-    var ReportTitle;
+    var ReportTitle = 'Correspondence Table';
 
-    $("#termInventoryBaseBtn").click(function() {
+    /**
+     * Download Place TAZ data
+     * On button click, request data, convert to CSV and download
+     */
+    $("#placeTazBtn").click(function() {
         //Show loading indicator
         $('#loading-indicator').show();
-        var trsid = '9016';
-        var url = 'http://rtci-dev.us-west-2.elasticbeanstalk.com/api/assets/termInventoryBase';
-        // Get value for cycle
-        var selCycle = $('#selCycle').val();
-        ReportTitle = 'rtcibasic';
-        // Create object to pass as request body
-        var info = {
-            trsid: trsid,
-            selCycle: selCycle,
-            spTrigger: ReportTitle
-        };
-
-        console.log(info);
-        //Post request to server and handle response in success function
+        var url = 'http://capvmt.us-west-2.elasticbeanstalk.com/api/places/placeTAZ';
+        //Send request to server and handle response in success function
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: url,
-            data: info,
-            success: successFunction,
+            success: function(response) {
+                console.log('Number of records returned: ' + response[0].length);
+                console.log('First record:');
+                console.log(response);
+                $('#loading-indicator').hide();
+                JSONToCSVConvertor(response, ReportTitle, true);
+            },
             dataType: 'json'
         });
     });
 
-    function successFunction(response) {
-        console.log('Number of records returned: ' + response[0].length);
-        console.log('First record:');
-        console.log(response[0][0]);
-        $('#loading-indicator').hide();
-        JSONToCSVConvertor(response[0], ReportTitle, true);
-    }
+     /**
+     * Download Place TAZ 1454 data
+     * On button click, request data, convert to CSV and download
+     */
+    $("#placeTaz1454Btn").click(function() {
+        //Show loading indicator
+        $('#loading-indicator').show();
+        var url = 'http://capvmt.us-west-2.elasticbeanstalk.com/api/places/placeTAZ1454';
+        //Send request to server and handle response in success function
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function(response) {
+                console.log('Number of records returned: ' + response[0].length);
+                console.log('First record:');
+                console.log(response);
+                $('#loading-indicator').hide();
+                JSONToCSVConvertor(response, ReportTitle, true);
+            },
+            dataType: 'json'
+        });
+    });
 
+    //Convert JSON data to CSV
     function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
         //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
         var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
@@ -87,7 +100,7 @@ $(document).ready(function() {
         }
 
         //Generate a file name
-        var fileName = "MyReport_";
+        var fileName = "CAPVMT_";
         //this will remove the blank-spaces from the title and replace it with an underscore
         fileName += ReportTitle.replace(/ /g, "_");
 

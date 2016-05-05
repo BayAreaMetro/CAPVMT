@@ -29,49 +29,40 @@
 </head>
 
 <body role="document">
-    <!-- Fixed navbar -->
-    <div class="container theme-showcase" role="main">
-        <div>
-            <img src="images/hero/hero.jpg" style="width:100%" />
-        </div>
-        <div class="page-header">
-            <img src="images/welcome.png" style="height:50px; padding-left: 25px; float:right" />
-            <h1>Welcome</h1>
-        </div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
         <div class="container">
-            <p>Welcome to the RTCI Website and Data Portal. This page is hosted by the Metropolitan Transportation Commission for the transit operators located in the San Francisco Bay Area Region. Access to this website is restricted to MTC staff and users authorized by the primary RTCI contact at each partner agency.</p>
-            <p>If you already have login credentials, please click on <strong>"<a href="login.html">Login</a>"</strong> above. If you need to request permission to access the website, please contact MTC at <a href="mailto:tromell@mtc.ca.gov">tromell@mtc.ca.gov</a> to initiate the process. You will need permission from the person designated as the primary RTCI contact at your agency to gain access to the website.</p>
-        </div>
-        <div class="page-header">
-            <img src="images/news.png" style="height:50px; padding-left: 25px; float:right" />
-            <h2>News</h2>
-        </div>
-        <div class="container">
-            <p>2016-04-29</p>
-            <h3>New Website</h3>
-            <p>MTC has launched the second version of the RTCI website. The website now contains enhanced data export capabilities, including data products designed to support use of FTA's TERM Lite model. Please see the new pages listed under the "RTCI Data Portal" navigation menu at the top of the page.</P>
-            <h4>New Website Sections</h4>
-            <ul>
-                <li><strong>RTCI Database Exports - </strong> One click exports of RTCI data tables and forms for running specialized MTC data reports.</li>
-                <li><strong>RTCI Import Tool - </strong> Currently disabled: Upload tool for new or updated RTCI data.</li>
-                <li><strong>TERM Lite Compatible Exports - </strong> One click exports of RTCI data formatted for TERM Lite compatibility.</li>
-                <li><strong>TERM Lite External Resources - </strong> List of externally hosted learning, guidance, and download resources for TERM Lite.</li>
-            </ul>
-            <p>The RTCI 2015 data collection cycle has been finalized. At this time, the import functionality of the website has been disabled. If you need to update your RTCI in the interim, please contact MTC and they will discuss options for updating your dataset. The data submitted for the RTCI 2015 collection is now considered final.</p>
-            <p>If you have any questions, please feel free to contact <a href="mailto:tromell@mtc.ca.gov">tromell@mtc.ca.gov</a></p>
-            <br/>
+            <h1>Climate Action Portal</h1>
+            <p class="lead">The website delivers estimates of vehicle miles traveled (VMT) relative to local jurisdictional boundaries or selected areas of interest using a standardized method.</p>
+            <p><a class="btn btn-primary btn-lg" href="http://capvmt.us-west-2.elasticbeanstalk.com/" role="button">Visit the Website &raquo;</a></p>
         </div>
     </div>
-    </div>
-    <footer class="footer">
-        <div class="container">
-            <br/>
-            <img src="images/mtc.png" style="height:40px; float:right;" />
-            <p class="text-muted">Copyright © 2002- 2016 Metropolitan Transportation Commission. All rights reserved.</p>
-            Feedback</a>
-            </p>
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <h1 style="padding-left:10px;">Downloadable Data</h1>
+            <div class="col-md-4">
+                <h2>Places and TAZs</h2>
+                <p>Download the correspondence table between Places (CDPs and Incorporated Jurisdictions) and MTC’s Travel Analysis Zones or TAZs (1454 Zones). This data does not include whole counties, only CDPs and County Remainder areas. </p>
+                <p><a id="placeTazBtn" class="btn btn-default" href="#" role="button">Download CSV &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Places and TAZs (1454)</h2>
+                <p>Download the correspondence table between Places and TAZs (1454). The Place boundaries include all 101 Incorporated Jurisdictions in the nine-county bay area region, 60 Census Designated Places or CDP areas, and County Remainder Areas. In addition this route includes all nine Bay Area Counties.</p>
+                <p><a id="placeTaz1454Btn" class="btn btn-default" href="#" role="button">Download CSV &raquo;</a></p>
+            </div>
+            <!--  <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div> -->
         </div>
-    </footer>
+        <hr>
+        <footer>
+            <p>&copy; 2016 Metropolitan Transportation Commission</p>
+        </footer>
+    </div>
+    <!-- /container -->
     <!-- /container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
