@@ -52,6 +52,29 @@ $(document).ready(function() {
         });
     });
 
+     /**
+     * Download VMT data
+     * On button click, request data, convert to CSV and download
+     */
+    $("#vmtBtn").click(function() {
+        //Show loading indicator
+        $('#loading-indicator').show();
+        var url = 'http://capvmt.us-west-2.elasticbeanstalk.com/api/vmt';
+        //Send request to server and handle response in success function
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function(response) {
+                console.log('Number of records returned: ' + response[0].length);
+                console.log('First record:');
+                console.log(response);
+                $('#loading-indicator').hide();
+                JSONToCSVConvertor(response, ReportTitle, true);
+            },
+            dataType: 'json'
+        });
+    });
+
     //Convert JSON data to CSV
     function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
         //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
