@@ -19,9 +19,6 @@ $(document).ready(function() {
             type: "GET",
             url: url,
             success: function(response) {
-                console.log('Number of records returned: ' + response[0].length);
-                console.log('First record:');
-                console.log(response);
                 $('#loading-indicator').hide();
                 JSONToCSVConvertor(response, ReportTitle, true);
             },
@@ -42,9 +39,6 @@ $(document).ready(function() {
             type: "GET",
             url: url,
             success: function(response) {
-                console.log('Number of records returned: ' + response[0].length);
-                console.log('First record:');
-                console.log(response);
                 $('#loading-indicator').hide();
                 JSONToCSVConvertor(response, ReportTitle, true);
             },
@@ -66,9 +60,6 @@ $(document).ready(function() {
             type: "GET",
             url: url,
             success: function(response) {
-                console.log('Number of records returned: ' + response[0].length);
-                console.log('First record:');
-                console.log(response);
                 $('#loading-indicator').hide();
                 JSONToCSVConvertor(response, ReportTitle, true);
             },
