@@ -57,6 +57,7 @@ $(document).ready(function() {
      * On button click, request data, convert to CSV and download
      */
     $("#vmtBtn").click(function() {
+        console.log('clicked');
         //Show loading indicator
         $('#loading-indicator').show();
         var url = 'http://capvmt.us-west-2.elasticbeanstalk.com/api/vmt';
