@@ -1,15 +1,50 @@
 <div class="col-sm-12 feedbackBackground fill">
-      <div class="site-wrapper-inner col-sm-12">
-      <div class="container">
-  <div class="row margin-top-100">
-    <div class="col-sm-8 col-sm-offset-2 shadowText spacedText-2">
-      <h1>Feedback</h1>
-      <p>Feedback Text Here...</p>
+    <div class="site-wrapper-inner col-sm-12">
+        <div class="container">
+            <div class="row margin-top-100">
+                <div class="col-sm-8 col-sm-offset-2 shadowText spacedText-2">
+                    <h1>Feedback</h1>
+                    <p>To provide us with general feedback, bugs and improvements, or suggestions for future releases, please fill out the form below:</p>
+                </div>
+                <div class="col-sm-8 col-sm-offset-2">
+                    <form role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputName">Full Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Name" id="inputName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputEmail">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" placeholder="Email" id="inputEmail" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputType">Feedback Type</label>
+                            <div class="col-sm-10">
+                                <select id="inputType" name="inputType" class="form-control" style="width:100% !important; margin:0;">
+                                    <option value="1">Select one...</option>
+                                    <option value="2">General Feedback</option>
+                                    <option value="1">Data Related</option>
+                                    <option value="2">Map Related</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputComment">Comment</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" rows="3" id="inputComment" name="inputComment"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-8 col-sm-offset-2">
-    Feedback Form Here...
-    </div>
-  </div>
-  </div>
-  </div>
-  </div>
+</div>

@@ -15,6 +15,8 @@ var config = {
     }
 
 };
+
+console.log(config);
 var options = {
     table: '[sessions]' // Table to use as session store. Default: [sessions]
 };
