@@ -9,6 +9,7 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/feedback', require('./api/feedback'));
   app.use('/api/modelruns', require('./api/modelruns'));
   app.use('/api/mapdata', require('./api/mapdata'));
   app.use('/api/places', require('./api/places'));
