@@ -19,3 +19,7 @@ select, select.form-control {
     height: 34px;
     color: #777;
 }
+
+.autoTH {
+    width: auto !important;
+}

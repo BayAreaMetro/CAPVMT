@@ -9,7 +9,8 @@ angular.module('capvmtApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'validation.match'
+  'validation.match',
+  'capvmt.filter.percentage'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
