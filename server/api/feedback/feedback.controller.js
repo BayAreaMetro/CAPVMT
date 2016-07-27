@@ -87,7 +87,7 @@ export function create(req, res) {
         "title": "Public Comment",
         "body": req.body.inputComment,
         "assignee": "MTCGIS",
-        "labels": req.body.inputType
+        "labels": [req.body.inputType]
     }, function(err, data, headers) {
         if (err) {
             console.log(err)

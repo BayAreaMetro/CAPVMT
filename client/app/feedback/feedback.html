@@ -4,6 +4,14 @@
             <div class="row margin-top-100">
                 <div class="col-sm-8 col-sm-offset-2 shadowText spacedText-2">
                     <h1>Feedback</h1>
+                    <div class="alert alert-success alert-dismissible" role="alert" ng-show="submitFeedbackSuccess">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Thank You!</strong> Our staff will review your comments as soon as possible.
+                    </div>
+                    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="submitFeedbackFail">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Oops!</strong>Something went wrong. Please submit the form again.
+                    </div>
                     <p>To provide us with general feedback, bugs and improvements, or suggestions for future releases, please fill out the form below:</p>
                 </div>
                 <div class="col-sm-8 col-sm-offset-2">
@@ -11,35 +19,35 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="inputName">Full Name</label>
                             <div class="col-sm-10">
-                                <input type="text" placeholder="Name" id="inputName" class="form-control">
+                                <input type="text" placeholder="Name" id="inputName" class="form-control" ng-model="feedback.inputName">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="inputEmail">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" placeholder="Email" id="inputEmail" class="form-control">
+                                <input type="email" placeholder="Email" id="inputEmail" class="form-control" ng-model="feedback.inputEmail">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="inputType">Feedback Type</label>
                             <div class="col-sm-10">
-                                <select id="inputType" name="inputType" class="form-control" style="width:100% !important; margin:0;">
-                                    <option value="1">Select one...</option>
-                                    <option value="2">General Feedback</option>
-                                    <option value="1">Data Related</option>
-                                    <option value="2">Map Related</option>
+                                <select id="inputType" name="inputType" class="form-control" style="width:100% !important; margin:0;" ng-model="feedback.inputType">
+                                    <option value="None">None</option>
+                                    <option value="General Feedback">General Feedback</option>
+                                    <option value="Data Related">Data Related</option>
+                                    <option value="Map Related">Map Related</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="inputComment">Comment</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="3" id="inputComment" name="inputComment"></textarea>
+                                <textarea class="form-control" rows="3" id="inputComment" name="inputComment" ng-model="feedback.inputComment"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button class="btn btn-primary" type="submit">Submit</button>
+                                <button class="btn btn-primary" type="submit" ng-click="submitFeedback()">Submit</button>
                             </div>
                         </div>
                     </form>
