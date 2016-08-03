@@ -10,7 +10,8 @@ angular.module('capvmtApp', [
   'ui.router',
   'ui.bootstrap',
   'validation.match',
-  'capvmt.filter.percentage'
+  'capvmt.filter.percentage',
+  'capvmt.filter.thousandSuffix'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
