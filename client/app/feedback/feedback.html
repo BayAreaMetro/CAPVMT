@@ -32,10 +32,13 @@
                             <label class="col-sm-2 control-label" for="inputType">Feedback Type</label>
                             <div class="col-sm-10">
                                 <select id="inputType" name="inputType" class="form-control" style="width:100% !important; margin:0;" ng-model="feedback.inputType">
+                                    <option value="">Choose feedback type </option>
                                     <option value="None">None</option>
                                     <option value="General Feedback">General Feedback</option>
-                                    <option value="Data Related">Data Related</option>
-                                    <option value="Map Related">Map Related</option>
+                                    <option value="Application Bug">Application Bug</option>
+                                    <option value="Enhancement Request">Enhancement Request</option>
+                                    <option value="Resource Content">Resource Content</option>
+                                    <option value="Map Content">Map Content</option>
                                 </select>
                             </div>
                         </div>
