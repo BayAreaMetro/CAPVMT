@@ -33,6 +33,10 @@ body {
   color: #fff;  
 }
 
+.panel-body {
+  color: #000;
+}
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
