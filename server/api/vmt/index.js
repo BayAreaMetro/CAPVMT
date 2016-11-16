@@ -6,8 +6,8 @@ var controller = require('./vmt.controller');
 var router = express.Router();
 
 router.get('/:id/:mr', controller.index);
+router.get('/', controller.vmtapi);
 
-//router.get('/', controller.index);
 //router.get('/:id', controller.show);
 // router.post('/', controller.create);
 // router.put('/:id', controller.update);

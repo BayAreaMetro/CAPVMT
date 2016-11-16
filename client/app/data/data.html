@@ -1,331 +1,475 @@
 <div id="data" class="col-sm-12 dataContainer">
-	<div class="row margin-top-100">
-	  <div class="col-xs-12 col-md-8 col-md-offset-2 txtBlack">
-	  	<div class="panel panel-default">
-	  	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">VMT Data</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Show Map</a></li>
-        <li><a href="#">Download Data</a></li>        
-      </ul>
-      <form class="navbar-form">
-        <div class="form-group">
-		    <input type="text" class="form-control" placeholder="Choose a Scenario Year">
-		    <input type="text" class="form-control" placeholder="Choose a City">
-        </div>
-        <button type="submit" class="btn btn-primary">Get Data</button>
-      </form>
-      
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-            <div class="panel-heading">
-				
-				<div class="row">
-					<div class="col-xs-12 col-md-8">
-		                <p>
-		                    <span class="panel-title" id="CityName">&nbsp;&nbsp;&nbsp;&nbsp;Climate Action Plan VMT Results</span>
-		                    <span class="panel-title ma-left-l pull-right" id="ModelRun"></span>
-		                </p>
-		            </div>
-            	</div>
-            </div>
-                        <div id="vmtresults" class="panel-body">
-                            <table class="table table-striped" style="table-layout: fixed !important; word-wrap: break-word !important;">
-
-                                <thead>
-                                    <tr>
-                                        <th rowspan="2" width="170px">Population Segment</th>                          
-                                        <th rowspan="2" width="100px">Persons</th>
-                                        <th class="text-center" colspan="8">Non-commercial Passenger Vehicle Miles Traveled</th>
-                                        <th rowspan="2" class="text-center" width="150px">Vehicle miles traveled per capita</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center" colspan="2">Entirely within</th>
-                                        <th class="text-center" colspan="2">Partially in</th>
-                                        <th class="text-center" colspan="2">Entirely outside</th>
-                                        <th class="text-center" colspan="2">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <span id="Lives0" /span>
-
-                                        </td>
-                                        <td>
-                                            <span id="Persons0" class="pull-right" />
-                                        </td>
-
-                                        <td>
-                                            <span id="Inside0" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Inside0pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In0" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In0pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Outside0" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Outside0pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Total0" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Total0pct" class="pull-right">100%</span>
-                                        </td>
-                                        <td>
-                                            <span id="PerCapita0" class="pull-right">0</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span id="Lives1" />
-                                        </td>
-                                        <td>
-                                            <span id="Persons1" class="pull-right" />
-                                        </td>
-
-                                        <td>
-                                            <span id="Inside1" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Inside1pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In1" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In1pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Outside1" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Outside1pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Total1" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Total1pct" class="pull-right">100%</span>
-                                        </td>
-                                        <td>
-                                            <span id="PerCapita1" class="pull-right">0</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span id="Lives2" />
-                                        </td>
-                                        <td>
-                                            <span id="Persons2" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Inside2" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Inside2pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In2" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In2pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Outside2" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Outside2pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Total2" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Total2pct" class="pull-right">100%</span>
-                                        </td>
-                                        <td>
-                                            <span id="PerCapita2" class="pull-right">0</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span id="Lives3" />
-                                        </td>
-                                        
-                                        <td>
-                                            <span id="Persons3" class="pull-right" />
-                                        </td>
-
-                                        <td>
-                                            <span id="Inside3" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Inside3pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In3" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In3pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Outside3" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Outside3pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Total3" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Total3pct" class="pull-right">100%</span>
-                                        </td>
-                                        <td>
-                                            <span id="PerCapita3" class="pull-right">0</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span id="Lives4" />
-                                        </td>
-                                        <td>
-                                            <span id="Persons4" class="pull-right" />
-                                        </td>
-
-                                        <td>
-                                            <span id="Inside4" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Inside4pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In4" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In4pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Outside4" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Outside4pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Total4" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Total4pct" class="pull-right">100%</span>
-                                        </td>
-                                        <td>
-                                            <span id="PerCapita4" class="pull-right">0</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span id="Lives5" />
-                                        </td>
-                                        <td>
-                                            <span id="Persons5" class="pull-right" />
-                                        </td>
-
-                                        <td>
-                                            <span id="Inside5" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Inside5pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In5" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Partially_In5pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Outside5" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Outside5pct" class="pull-right">0%</span>
-                                        </td>
-                                        <td>
-                                            <span id="Total5" class="pull-right" />
-                                        </td>
-                                        <td>
-                                            <span id="Total5pct" class="pull-right">100%</span>
-                                        </td>
-                                        <td>
-                                            <span id="PerCapita5" class="pull-right">0</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-
-
-                                        <td class="text-right">Total</td>
-
-                                        <td>
-                                            <span id="TotalPersons" class="pull-right" />
-                                        </td>
-
-                                        <td>
-                                            <span id="TotalInside" class="pull-right" />
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <span id="TotalPartially_In" class="pull-right" />
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <span id="TotalOutside" class="pull-right" />
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <span id="TotalVMT" class="pull-right" />
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <span id="PerCapitaTotal" class="pull-right">0</span>
-                                        </td>
-
-                                    </tr>
-
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="11">
-                                            <div class="col-lg-12 pad-top-s">
-                                                <h4 class="panel-title" id="CityName">Selected Transportation Analysis Zones:</h4>
-                                                <p><span id="TAZs">List Here</span>
-                                                </p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+    <div class="row margin-top-100">
+        <div class="col-xs-12 col-md-12 txtBlack">
+            <div class="panel panel-default">
+                <div class="col-xs-12" style="padding:5px;">
+                    <form class="form-inline" style="background-color:#F8F8F8;">
+                        <div class="form-group">
+                            <select class="input-sm form-control" ng-model="selectedModelRun" ng-change="setModelRun(selectedModelRun)" style="width:200px !important;">
+                                <option value="">Choose a Scenario Year </option>
+                                <option ng-repeat="item in Years" ng-value="item.value">{{item.text}}</option>
+                            </select>
+                            <!-- <input type="text" class="form-control" placeholder="Choose a City"> -->
+                            <select class="input-sm form-control" ng-model="selectedPlace" ng-change="setCity(selectedPlace)" style="width:200px !important;">
+                                <option value="">Choose a Jurisdiction </option>
+                                <option ng-repeat="item in Places" ng-value="item.value">{{item.text}}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" ng-click="getData()" style="margin-left:10px !important;">Get Data</button>
+                        <a ui-sref="explorer">
+                            <button type="submit" class="btn btn-primary" style="padding-left:10px;">Map</button>
+                        </a>
+                        <button class="btn btn-primary" style="padding-left:10px;" ng-click="downloadData()">Download Data</button>
+                    </form>
+                </div>
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <p>
+                                <span class="panel-title" id="CityName"><h4>Climate Action Plan VMT Data</h4>
+                                <b>Place Name: </b> {{ vmtData[0].CityName }}</span>
+                                <span class="panel-title ma-left-l pull-right" id="ModelRun"><b>Simulation ID: </b> {{ vmtData[0].Model_Run }}</span>
+                            </p>
                         </div>
                     </div>
-	  </div>
-  
-	</div>		
+                </div>
+                <!--    <div id="vmtresults" class="panel-body">
+                    <table class="table table-striped" style="table-layout: fixed !important; word-wrap: break-word !important;">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" width="170px">Population Segment</th>
+                                <th rowspan="2" width="100px">Persons</th>
+                                <th class="text-center" colspan="8">Non-commercial Passenger Vehicle Miles Traveled</th>
+                                <th rowspan="2" class="text-center" width="150px">Vehicle miles traveled per capita</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center" colspan="2">Entirely within</th>
+                                <th class="text-center" colspan="2">Partially in</th>
+                                <th class="text-center" colspan="2">Entirely outside</th>
+                                <th class="text-center" colspan="2">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>{{ vmtData[0].Lives }}/ <br>
+                                    {{ vmtData[0].Works }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span id="Persons0" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside0" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside0pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Partially_In0" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Partially_In0pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Outside0" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Outside0pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Total0" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Total0pct" class="pull-right">100%</span>
+                                </td>
+                                <td>
+                                    <span id="PerCapita0" class="pull-right">0</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>{{ vmtData[1].Lives }}/ <br>
+                                    {{ vmtData[1].Works }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span id="Persons1" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside1" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside1pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Partially_In1" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Partially_In1pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Outside1" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Outside1pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Total1" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Total1pct" class="pull-right">100%</span>
+                                </td>
+                                <td>
+                                    <span id="PerCapita1" class="pull-right">0</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>{{ vmtData[2].Lives }}/ <br>
+                                    {{ vmtData[2].Works }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span id="Persons2" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside2" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside2pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Partially_In2" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Partially_In2pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Outside2" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Outside2pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Total2" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Total2pct" class="pull-right">100%</span>
+                                </td>
+                                <td>
+                                    <span id="PerCapita2" class="pull-right">0</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>{{ vmtData[3].Lives }}/ <br>
+                                    {{ vmtData[3].Works }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span id="Persons3" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside3" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside3pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Partially_In3" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Partially_In3pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Outside3" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Outside3pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Total3" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Total3pct" class="pull-right">100%</span>
+                                </td>
+                                <td>
+                                    <span id="PerCapita3" class="pull-right">0</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>{{ vmtData[4].Lives }}/ <br>
+                                    {{ vmtData[4].Works }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span id="Persons4" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside4" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside4pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Partially_In4" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Partially_In4pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Outside4" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Outside4pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Total4" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Total4pct" class="pull-right">100%</span>
+                                </td>
+                                <td>
+                                    <span id="PerCapita4" class="pull-right">0</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>{{ vmtData[5].Lives }}/ <br>
+                                    {{ vmtData[5].Works }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span id="Persons5" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside5" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Inside5pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Partially_In5" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Partially_In5pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Outside5" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Outside5pct" class="pull-right">0%</span>
+                                </td>
+                                <td>
+                                    <span id="Total5" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="Total5pct" class="pull-right">100%</span>
+                                </td>
+                                <td>
+                                    <span id="PerCapita5" class="pull-right">0</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Total</td>
+                                <td>
+                                    <span id="TotalPersons" class="pull-right" />
+                                </td>
+                                <td>
+                                    <span id="TotalInside" class="pull-right" />
+                                </td>
+                                <td></td>
+                                <td>
+                                    <span id="TotalPartially_In" class="pull-right" />
+                                </td>
+                                <td></td>
+                                <td>
+                                    <span id="TotalOutside" class="pull-right" />
+                                </td>
+                                <td></td>
+                                <td>
+                                    <span id="TotalVMT" class="pull-right" />
+                                </td>
+                                <td></td>
+                                <td>
+                                    <span id="PerCapitaTotal" class="pull-right">0</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="11">
+                                    <div class="col-lg-12 pad-top-s">
+                                        <h4 class="panel-title" id="CityName">Selected Transportation Analysis Zones:</h4>
+                                        <p><span id="TAZs">List Here</span>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div> -->
+                <div id="vmtResults" class="panel-body">
+                    <table class="table table-striped" style="table-layout: fixed !important; word-wrap: break-word !important;">
+                        <!-- Table head for md, lg, xl resolution -->
+                        <thead class="hidden-sm hidden-xs">
+                            <tr>
+                                <th rowspan="2" width="170px">Population Segment</th>
+                                <th rowspan="2" width="100px">Persons</th>
+                                <th class="text-center" colspan="8">Non-commercial Passenger Vehicle Miles Traveled</th>
+                                <th rowspan="2" class="text-center" width="150px">Vehicle miles traveled per capita</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center" colspan="2">Entirely within</th>
+                                <th class="text-center" colspan="2">Partially in</th>
+                                <th class="text-center" colspan="2">Entirely outside</th>
+                                <th class="text-center" colspan="2">Total</th>
+                            </tr>
+                        </thead>
+                        <!-- Table head for sm and xs resolution -->
+                        <thead class="hidden-md hidden-lg hidden-xl">
+                            <tr style="border:0;">
+                                <th rowspan="2" width="120px"></th>
+                                <th rowspan="2" class="text-center col-xs-2"><i class="fa fa-users fa-2x"></i></th>
+                                <th class="text-center" colspan="8" style="border:0">Non-commercial Passenger Vehicle Miles Traveled</th>
+                                <th rowspan="2" class="text-center col-xs-2">VMT/PP.</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center col-xs-2" colspan="2"><i class="fa fa-user fa-2x"></i></th>
+                                <th class="text-center col-xs-1" colspan="2"><i class="fa fa-user-plus fa-2x"></i></th>
+                                <th class="text-center col-xs-1" colspan="2"><i class="fa fa-user-times fa-2x"></i></th>
+                                <th class="text-center col-xs-2" colspan="2" width="50px">Total</th>
+                            </tr>
+                        </thead>
+                        <!-- Table body for md, lg and xl resolution -->
+                        <tbody class="hidden-sm hidden-xs">
+                            <tr ng-repeat="data in vmtData">
+                                <td>
+                                    <span>{{ data.Lives }}/ <br>
+                                    {{ data.Works }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="pull-right">{{ data.Persons | number }}</span>
+                                </td>
+                                <td>
+                                    <span class="pull-right">{{ data.Inside | number }}</span>
+                                </td>
+                                <td>
+                                    <span id="Inside0pct" class="pull-right">{{ data.Inside/data.Total | percentage:1 }}</span>
+                                </td>
+                                <td>
+                                    <span class="pull-right">{{ data.Partially_In | number }}</span>
+                                </td>
+                                <td>
+                                    <span id="Inside0pct" class="pull-right">{{ data.Partially_In/data.Total | percentage:1 }}</span>
+                                </td>
+                                <td>
+                                    <span class="pull-right">{{ data.Outside | number }}</span>
+                                </td>
+                                <td>
+                                    <span id="Inside0pct" class="pull-right">{{ data.Outside/data.Total | percentage:1 }}</span>
+                                </td>
+                                <td>
+                                    <span class="pull-right">{{ data.Total | number }}</span>
+                                </td>
+                                <td>
+                                    <span id="Total0pct" class="pull-right">100%</span>
+                                </td>
+                                <td>
+                                    <span id="PerCapita0" class="pull-right">{{data.Total / data.Persons | number:2}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Total</td>
+                                <td>
+                                    <span class="pull-right">{{ totals.totalPersons | number }}</span>
+                                </td>
+                                <td>
+                                    <span class="pull-right">{{  totals.totalInside | number }}</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <span class="pull-right">{{  totals.totalPartial | number}}</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <span class="pull-right">{{  totals.totalOutside | number }}</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <span class="pull-right">{{  totals.totalVMT | number }}</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <span class="pull-right">{{  totals.totalVMTPerCapita | number:2 }}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <!-- Table body for sm, xs resolution -->
+                        <tbody class="hidden-md hidden-lg hidden-xl">
+                            <tr ng-repeat="data in vmtData">
+                                <td>
+                                    <span>{{ data.Lives }}/ <br>
+                                    {{ data.Works }}
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <span>{{ data.Persons | thousandSuffix:1 }}</span>
+                                </td>
+                                <td colspan="2" class="text-center">
+                                    <span id="Inside0pct">{{ data.Inside/data.Total | percentage:1 }}</span>
+                                </td>
+                                <td colspan="2" class="text-center">
+                                    <span id="Inside0pct">{{ data.Partially_In/data.Total | percentage:1 }}</span>
+                                </td>
+                                <td colspan="2" class="text-center">
+                                    <span id="Inside0pct">{{ data.Outside/data.Total | percentage:1 }}</span>
+                                </td>
+                                <td colspan="2" class="text-center">
+                                    <span>{{ data.Total | thousandSuffix:1 }}</span>
+                                </td>
+                                <td>
+                                    <span id="PerCapita0" class="pull-right">{{data.Total / data.Persons | number:2}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Total</td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td></td>
+                                <td>
+                                </td>
+                                <td></td>
+                                <td>
+                                </td>
+                                <td></td>
+                                <td colspan="2">
+                                    <span class="pull-right">{{  totals.totalVMT | number }}</span>
+                                </td>
+                                <td>
+                                    <span class="pull-right">{{  totals.totalVMTPerCapita | number:2 }}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="11">
+                                    <div class="col-lg-12 pad-top-s">
+                                        <h4 class="panel-title" id="CityName">Selected Transportation Analysis Zones:</h4>
+                                        <p><span id="TAZs">{{ TAZList }}</span>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-	

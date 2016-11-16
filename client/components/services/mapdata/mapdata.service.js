@@ -6,12 +6,12 @@ angular.module('capvmtApp')
         
 
         this.getVMTplace = function (id) {
-            return $http.get(urlBase + '/' + id);
+            return $http.get(urlBase + '/vmtplace/' + id);
         };
         this.getVMTtaz = function (id) {
             return $http.get(urlBase + '/vmttaz/' + id);
         };
         this.getVMTurbantaz = function (id) {
-            return $http.get(urlBase + '/' + id);
+            return $http.get(urlBase + '/vmturbantaz/' + id);
         };
     });

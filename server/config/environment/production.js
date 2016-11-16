@@ -1,5 +1,6 @@
 'use strict';
 var mssql = require('mssql');
+var github = require('octonode');
 
 var config = {
     user: process.env.SQL_USER,
@@ -23,27 +24,34 @@ var connection = new mssql.Connection(config, function(err) {
 
 });
 
+var client = github.client({
+    username: process.env.GITHUB_USER,
+    password: process.env.GITHUB_PWD
+});
+
+var ghrepo = client.repo('MetropolitanTransportationCommission/CAPVMT')
+
 // Production specific configuration
 // =================================
 module.exports = {
-  // Server IP
-  ip:     process.env.OPENSHIFT_NODEJS_IP ||
-          process.env.IP ||
-          undefined,
+    // Server IP
+    ip: process.env.OPENSHIFT_NODEJS_IP ||
+        process.env.IP ||
+        undefined,
 
-  // Server port
-  port:   process.env.OPENSHIFT_NODEJS_PORT ||
-          process.env.PORT ||
-          8080,
+    // Server port
+    port: process.env.OPENSHIFT_NODEJS_PORT ||
+        process.env.PORT ||
+        8080,
 
-  // MongoDB connection options
-  mongo: {
-    uri:  process.env.MONGOLAB_URI ||
-          process.env.MONGOHQ_URL ||
-          process.env.OPENSHIFT_MONGODB_DB_URL +
-          process.env.OPENSHIFT_APP_NAME ||
-          'mongodb://localhost/capvmt'
-  },
+    // MongoDB connection options
+    mongo: {
+        uri: process.env.MONGOLAB_URI ||
+            process.env.MONGOHQ_URL ||
+            process.env.OPENSHIFT_MONGODB_DB_URL +
+            process.env.OPENSHIFT_APP_NAME ||
+            'mongodb://localhost/capvmt'
+    },
     mssql: {
         config: config,
         options: options,
@@ -55,7 +63,7 @@ module.exports = {
             //seedDB: true
     },
     github: {
-        user: process.env.GITHUB_USER,
-        access: process.env.GITHUB_PWD
-    }
+        client: client,
+        repo: ghrepo
+    } //,
 };

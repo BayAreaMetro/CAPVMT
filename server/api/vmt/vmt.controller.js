@@ -57,10 +57,10 @@ var config = require('./../../config/environment');
 // }
 
 function handleError(res, statusCode) {
-  statusCode = statusCode || 500;
-  return function(err) {
-    res.status(statusCode).send(err);
-  };
+    statusCode = statusCode || 500;
+    return function (err) {
+        res.status(statusCode).send(err);
+    };
 }
 
 // // Gets a list of Vmts
@@ -109,15 +109,30 @@ function handleError(res, statusCode) {
 // //test route: http://localhost:9000/api/vmt/1/2005_03_YYY
 // //removed the where clause to return the entire table.
 // Will probably need to filter data returned based upon values in the app drop downs
-exports.index = function(req,res){
-var place = parseInt(req.params.id);
-var mr = "N'" + req.params.mr + "'";
-//var place = 1;
-//var mr = "N'2005_03_YYY'";
-////WHERE (placeid = " + place + ") AND (model_run = " + mr + ")
-var request = new sql.Request(config.mssql.connection);
+exports.index = function (req, res) {
+    var place = parseInt(req.params.id);
+    var mr = "N'" + req.params.mr + "'";
+    //var place = 1;
+    //var mr = "N'2005_03_YYY'";
+    ////WHERE (placeid = " + place + ") AND (model_run = " + mr + ")
+    var request = new sql.Request(config.mssql.connection);
     var query = "SELECT Lives, Works, Persons, Inside, Partially_In, Outside, Total, CityName, placeid as Place_ID, model_run as Model_Run, tazlist FROM VMT_Results WHERE (placeid = " + place + ") AND (model_run = " + mr + ") ORDER BY CityName, SortOrder2, SortOrder3";
-    request.query(query, function(err, vmtdata) {
+    request.query(query, function (err, vmtdata) {
+        if (err) {
+            return handleError(res, err);
+        }
+        if (!vmtdata) {
+            return res.status(404).send('Not Found');
+        }
+        res.status(200).json(vmtdata);
+    });
+
+}
+//Selects VMT by Scenario (Model Run) and Place/County areas.
+exports.vmtapi = function (req, res) {
+    var request = new sql.Request(config.mssql.connection);
+    var query = "SELECT Lives, Works, Persons, Inside, Partially_In, Outside, Total, CityName, placeid as Place_ID, model_run as Model_Run, tazlist FROM VMT_Results ORDER BY CityName, SortOrder2, SortOrder3";
+    request.query(query, function (err, vmtdata) {
         if (err) {
             return handleError(res, err);
         }

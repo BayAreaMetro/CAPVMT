@@ -5,6 +5,7 @@ angular.module('capvmtApp')
     $stateProvider
       .state('data', {
         url: '/data',
-        template: '<data></data>'
+        templateUrl: 'app/data/data.html',
+        controller:'DataCtrl'
       });
   });

@@ -108,7 +108,7 @@ exports.getVMTplace = function(req,res){
 var place = parseInt(req.params.id);
 //var place = 1;
 var request = new sql.Request(config.mssql.connection);
-    var query = "SELECT ID, name as CityName, County, Shape.ToString() as WKT FROM CAPVMT.[PLACES_WGS84] WHERE (ID = " + place + ")";
+    var query = "SELECT ID, CityName, County, WKT FROM CAPVMT.[Places_VW] WHERE (ID = " + place + ")";
     request.query(query, function(err, vmtplace) {
         if (err) {
             return handleError(res, err);
@@ -124,7 +124,7 @@ var request = new sql.Request(config.mssql.connection);
 exports.getVMTtaz = function(req,res){
 var place = parseInt(req.params.id);
 var request = new sql.Request(config.mssql.connection);
-    var query = "SELECT City_Domain as ID, taz_key, Shape.ToString() as WKT FROM CAPVMT.[TAZ_PLACES_WGS84] WHERE (ID = " + place + ")";
+    var query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[TAZs_VW] WHERE (ID = " + place + ")";
     request.query(query, function(err, vmttaz) {
         if (err) {
             return handleError(res, err);
@@ -140,7 +140,7 @@ var request = new sql.Request(config.mssql.connection);
 exports.getVMTurbantaz = function(req,res){
 var place = parseInt(req.params.id);
 var request = new sql.Request(config.mssql.connection);
-    var query = "SELECT City_Domain as ID, taz_key, Shape.ToString() as WKT FROM CAPVMT.[URBANTAZS_WGS84] WHERE (ID = " + place + ")";
+    var query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[UrbanizedTAZs_VW] WHERE (ID = " + place + ")";
     request.query(query, function(err, vmtutaz) {
         if (err) {
             return handleError(res, err);

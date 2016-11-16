@@ -1,5 +1,6 @@
 'use strict';
 var mssql = require('mssql');
+var github = require('octonode');
 
 var config = {
     user: process.env.SQL_USER,
@@ -15,6 +16,8 @@ var config = {
     }
 
 };
+
+console.log(config);
 var options = {
     table: '[sessions]' // Table to use as session store. Default: [sessions]
 };
@@ -29,10 +32,22 @@ var connection = new mssql.Connection(config, function(err) {
     }
 
 });
+
+var client = github.client({
+    username: process.env.GITHUB_USER,
+    password: process.env.GITHUB_PWD
+});
+
+var ghrepo = client.repo('MetropolitanTransportationCommission/CAPVMT')
+
+// client.get('/user', {}, function(err, status, body, headers) {
+//     console.log(body); //json object
+// });
+
 // Development specific configuration
 // ==================================
 module.exports = {
-	mssql: {
+    mssql: {
         config: config,
         options: options,
         connection: connection
@@ -42,16 +57,16 @@ module.exports = {
         access: process.env.SENDGRID_PWD
     },
     github: {
-        user: process.env.GITHUB_USER,
-        access: process.env.GITHUB_PWD
-    }//,
+        client: client,
+        repo: ghrepo
+    } //,
 
-  // MongoDB connection options
-  // mongo: {
-  //   uri: 'mongodb://localhost/capvmt-dev'
-  // },
+    // MongoDB connection options
+    // mongo: {
+    //   uri: 'mongodb://localhost/capvmt-dev'
+    // },
 
-  // // Seed database on startup
-  // seedDB: false
+    // // Seed database on startup
+    // seedDB: false
 
 };

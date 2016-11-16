@@ -5,12 +5,12 @@ describe('Component: DataComponent', function () {
   // load the controller's module
   beforeEach(module('capvmtApp'));
 
-  var DataComponent, scope;
+  var DataCtrl, scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($componentController, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    DataComponent = $componentController('DataComponent', {
+    DataCtrl = $controller('DataCtrl', {
       $scope: scope
     });
   }));
