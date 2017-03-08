@@ -2,21 +2,26 @@
  * Globals
  */
 
+
 /* Links */
+
 a,
 a:focus,
 a:hover {
-  color: none;
+    color: none;
 }
 
+
 /* Custom default button */
+
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
-  color: none;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
+    color: none;
+    text-shadow: none;
+    /* Prevent inheritence from `body` */
+    background-color: #fff;
+    border: 1px solid #fff;
 }
 
 
@@ -26,52 +31,59 @@ a:hover {
 
 html,
 body {
-  height: 100%;
-  background-color: #444;  
+    height: 100%;
+    background-color: #444;
 }
+
 body {
-  color: #fff;  
+    color: #fff;
 }
 
 .panel-body {
-  color: #000;
+    color: #000;
 }
+
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
+
 .site-wrapper {
-  display: table;
-  width: 100%;
-  height: calc(100% - 120px); /* For at least Firefox */
-  min-height: calc(100% - 120px);  
+    display: table;
+    width: 100%;
+    height: calc(100% - 120px);
+    /* For at least Firefox */
+    min-height: calc(100% - 120px);
 }
 
-
 .site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
+    display: table-cell;
+    vertical-align: top;
 }
 
 .cover-container {
-  margin-top: 30%;
-  margin-right: auto;
-  margin-left: auto;
+    margin-top: 30%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
+
 /* Padding for spacing */
+
 .inner {
-  padding: 0px;
+    padding: 0px;
 }
+
 
 /*
  * Header
  */
 
 
-
 /*navbar overides*/
+
 .navbar-default .navbar-brand {
     color: #506ea7;
 }
+
 .navbar-brand {
     float: left;
     height: 50px;
@@ -80,142 +92,153 @@ body {
     line-height: 20px;
     letter-spacing: 2px;
     font-weight: bold;
-    text-shadow: 0 1px 1px rgba(0,0,0,.5);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
 }
-.navbar-default .navbar-nav > li > a {
+
+.navbar-default .navbar-nav>li>a {
     color: #506ea7;
     letter-spacing: 1px;
 }
-.navbar{
-  margin-bottom: 0px;
+
+.navbar {
+    margin-bottom: 0px;
 }
+
 
 /*Extra markup and styles for page content*/
-.fill{
-  position: absolute;
-  top:0;
-  bottom: 50px;
-}
-.mapContainer{
-  position: absolute;
-  top:50px;
-  bottom: 50px;
-  right: 0;
-  left: 0;
-  background-color: #777;
 
+.fill {
+    position: absolute;
+    top: 0;
+    bottom: 50px;
 }
-.dataContainer{
-  position: absolute;
-  top:50px;
-  bottom: 50px;
-  background-color: #fff;
-  background: url('../../assets/images/EarthInHand.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
+
+.mapContainer {
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    right: 0;
+    left: 0;
+    background-color: #777;
+}
+
+.dataContainer {
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    background-color: #fff;
+    background: url('../../assets/images/EarthInHand.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
-.margin-top-50{
-  margin-top: 50px;
+
+.margin-top-50 {
+    margin-top: 50px;
 }
-.margin-top-100{
-  margin-top: 100px;
+
+.margin-top-100 {
+    margin-top: 100px;
 }
-.margin-top-200{
-  margin-top: 200px;
+
+.margin-top-200 {
+    margin-top: 200px;
 }
 
 .shadowText {
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
-}
-.spacedText-2{
-  letter-spacing: 2px;
-}
-.text-align-center{
-  text-align: center;
-}
-.text-bold{
-  font-weight: bold;
-}
-.txtBlack{
-  color: #333;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
 }
 
-.txtOverlayBG{
-  background-color: #333;
-  opacity: 0.4;
-  filter: alpha(opacity=0.4);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
+.spacedText-2 {
+    letter-spacing: 2px;
 }
 
-.hmBackground{
-  background: url('../../assets/images/EarthInHand.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
+.text-align-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.txtBlack {
+    color: #333;
+}
+
+.txtOverlayBG {
+    background-color: #333;
+    opacity: 0.4;
+    filter: alpha(opacity=0.4);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.hmBackground {
+    background: url('../../assets/images/EarthInHand.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-        
 }
 
-.loginBackground{
-  background: url('../../assets/images/bayareahills.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; 
-  
+.loginBackground {
+    background: url('../../assets/images/bayareahills.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-
-.registerBackground{
-  background: url('../../assets/images/baybridge.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;  
+.registerBackground {
+    background: url('../../assets/images/baybridge.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.feedbackBackground{
-  background: url('../../assets/images/baybridge_newold.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;  
+.feedbackBackground {
+    background: url('../../assets/images/baybridge_newold.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-#aboutBackground{
-  background: url('../../assets/images/baybridge.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;  
+#aboutBackground {
+    background: url('../../assets/images/baybridge.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 88vh;
+    overflow: scroll;
 }
 
 #aboutBackground:before {
-    content:"";
-    display:block;
-    position:fixed;
-    width:100%;
-    height:100%;
-    left:0;
-    top:0;
-    z-index:-1;
+    content: "";
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
     background-color: rgba(255, 255, 255, 0.25);
 }
 
 @media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
+    .masthead-brand {
+        float: left;
+    }
+    .masthead-nav {
+        float: right;
+    }
 }
 
 
@@ -224,12 +247,13 @@ body {
  */
 
 .cover {
-  padding: 0 20px;
-  letter-spacing: 1px;
+    padding: 0 20px;
+    letter-spacing: 1px;
 }
+
 .cover .btn-lg {
-  padding: 10px 20px;
-  font-weight: bold;
+    padding: 10px 20px;
+    font-weight: bold;
 }
 
 
@@ -238,8 +262,9 @@ body {
  */
 
 .mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
+    color: #999;
+    /* IE8 proofing */
+    color: rgba(255, 255, 255, .5);
 }
 
 
@@ -248,32 +273,32 @@ body {
  */
 
 @media (min-width: 768px) {
-  /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
-  }
-  .mastfoot {
-    position: fixed;
-    bottom: 0;
-  }
-  /* Start the vertical centering */
-  .site-wrapper-inner-middle {
-    vertical-align: middle;
-  }
-  /* Handle the widths */
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
-  }
+    /* Pull out the header and footer */
+    .masthead {
+        position: fixed;
+        top: 0;
+    }
+    .mastfoot {
+        position: fixed;
+        bottom: 0;
+    }
+    /* Start the vertical centering */
+    .site-wrapper-inner-middle {
+        vertical-align: middle;
+    }
+    /* Handle the widths */
+    .masthead,
+    .mastfoot,
+    .cover-container {
+        width: 100%;
+        /* Must be percentage or pixels for horizontal alignment */
+    }
 }
 
 @media (min-width: 992px) {
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 700px;
-  }
+    .masthead,
+    .mastfoot,
+    .cover-container {
+        width: 700px;
+    }
 }
-

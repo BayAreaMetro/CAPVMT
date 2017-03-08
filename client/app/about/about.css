@@ -1,0 +1,9 @@
+.panel-info {
+    border-color: gray !important;
+}
+
+.panel-info>.panel-heading {
+    background-color: #66A5C2;
+    color: white;
+    border-color: gray;
+}
