@@ -4,13 +4,11 @@
             <div class="row margin-top-100">
                 <div class="col-sm-8 col-sm-offset-2 shadowText spacedText-2">
                     <h1>Feedback</h1>
-                    <div class="alert alert-success alert-dismissible" role="alert" ng-show="submitFeedbackSuccess">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="alert alert-success" role="alert" ng-show="submitFeedbackSuccess">
                         <strong>Thank You!</strong> Our staff will review your comments as soon as possible.
                     </div>
-                    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="submitFeedbackFail">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <strong>Oops!</strong>Something went wrong. Please submit the form again.
+                    <div class="alert alert-danger" role="alert" ng-show="submitFeedbackFail">
+                        <strong>Oops!</strong> Something went wrong. Please submit the form again.
                     </div>
                     <p>To provide us with general feedback, bugs and improvements, or suggestions for future releases, please fill out the form below:</p>
                 </div>

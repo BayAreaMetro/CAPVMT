@@ -13,21 +13,24 @@
                         if (response.status === 'success') {
                             $scope.submitFeedbackSuccess = true;
                             $scope.submitFeedbackFail = false;
+                            $scope.feedback = {};
 
-                            $timeout(dismissNotice, 3000);
+                            $timeout(dismissNotice, 5000);
                         }
                     }).error(function(err) {
                         if (err) {
                             $scope.submitFeedbackFail = true;
                             $scope.submitFeedbackSuccess = false;
-                            $timeout(dismissNotice, 3000);
+                            // $timeout(dismissNotice, 5000);
                         }
                     });
             };
 
             function dismissNotice() {
-                $scope.submitFeedback = false;
+                console.log('dismissing notice');
+                $scope.submitFeedbackSuccess = false;
                 $scope.submitFeedbackFail = false;
+
             }
         }
     }
