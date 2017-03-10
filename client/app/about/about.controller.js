@@ -4,6 +4,9 @@
     class AboutComponent {
         constructor($scope) {
             this.message = 'Hello';
+
+            $scope.oneAtATime = true;
+
             $scope.status = {
                 isCustomHeaderOpen: false,
                 isFirstOpen: true,

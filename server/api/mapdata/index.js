@@ -7,8 +7,8 @@ var router = express.Router();
 
 // router.get('/', controller.index);
 router.get('/vmtplace/:id', controller.getVMTplace);
-router.get('/vmttaz/:id', controller.getVMTtaz);
-router.get('/vmturbantaz/:id', controller.getVMTurbantaz);
+router.get('/vmttaz/:id/:isCounty', controller.getVMTtaz);
+router.get('/vmturbantaz/:id/:isCounty', controller.getVMTurbantaz);
 // router.post('/', controller.create);
 // router.put('/:id', controller.update);
 // router.patch('/:id', controller.update);

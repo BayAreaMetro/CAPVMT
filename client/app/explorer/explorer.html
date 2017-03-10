@@ -1,29 +1,27 @@
-
 <!-- Static navbar -->
 
 <nav class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
+    <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" ng-model="Jurisdiction">{{ Jurisdiction }}</a>          
+            <a class="navbar-brand" href="#" ng-model="Jurisdiction">{{ Jurisdiction }}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-          </ul>
-          <ul class="nav navbar-nav navbar-right">            
-            <li><a href="#" ng-click="mapIt('place')">Place Boundary</a></li>
-            <li ng-class="active"><a href="#" ng-click="mapIt('taz')">TAZ Boundaries</a></li>
-            <li><a href="#" ng-click="mapIt('utaz')">Urbanized TAZ Boundaries</a></li>            
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" ng-click="mapIt('place')">Selection Boundary</a></li>
+                <li ng-class="active"><a href="#" ng-click="mapIt('taz')">TAZ Boundaries</a></li>
+                <li><a href="#" ng-click="mapIt('utaz')">Urbanized TAZ Boundaries</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
 <div id="canvas" class="col-sm-12 mapContainer margin-top-50">
-</div>   
-
-
+</div>

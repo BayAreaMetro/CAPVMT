@@ -56,10 +56,10 @@ var config = require('./../../config/environment');
 // }
 
 function handleError(res, statusCode) {
-  statusCode = statusCode || 500;
-  return function(err) {
-    res.status(statusCode).send(err);
-  };
+    statusCode = statusCode || 500;
+    return function(err) {
+        res.status(statusCode).send(err);
+    };
 }
 
 // Gets a list of Mapdatas
@@ -104,10 +104,10 @@ function handleError(res, statusCode) {
 //     .catch(handleError(res));
 // }
 // 
-exports.getVMTplace = function(req,res){
-var place = parseInt(req.params.id);
-//var place = 1;
-var request = new sql.Request(config.mssql.connection);
+exports.getVMTplace = function(req, res) {
+    var place = parseInt(req.params.id);
+    //var place = 1;
+    var request = new sql.Request(config.mssql.connection);
     var query = "SELECT ID, CityName, County, WKT FROM CAPVMT.[Places_VW] WHERE (ID = " + place + ")";
     request.query(query, function(err, vmtplace) {
         if (err) {
@@ -121,10 +121,19 @@ var request = new sql.Request(config.mssql.connection);
 
 }
 
-exports.getVMTtaz = function(req,res){
-var place = parseInt(req.params.id);
-var request = new sql.Request(config.mssql.connection);
-    var query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[TAZs_VW] WHERE (ID = " + place + ")";
+exports.getVMTtaz = function(req, res) {
+    var place = parseInt(req.params.id);
+    var placeStr = req.params.id;
+    var isCounty = req.params.isCounty;
+    var query;
+
+    if (isCounty === 'yes') {
+        query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[TAZs_VW] WHERE COUNTY_FIP = '" + placeStr + "'";
+    } else {
+        query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[TAZs_VW] WHERE (ID = " + place + ")";
+    }
+    var request = new sql.Request(config.mssql.connection);
+    // var query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[TAZs_VW] WHERE (ID = " + place + ")";
     request.query(query, function(err, vmttaz) {
         if (err) {
             return handleError(res, err);
@@ -137,10 +146,22 @@ var request = new sql.Request(config.mssql.connection);
 
 }
 
-exports.getVMTurbantaz = function(req,res){
-var place = parseInt(req.params.id);
-var request = new sql.Request(config.mssql.connection);
-    var query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[UrbanizedTAZs_VW] WHERE (ID = " + place + ")";
+exports.getVMTurbantaz = function(req, res) {
+    var place = parseInt(req.params.id);
+    var placeStr = req.params.id;
+    console.log(place);
+    console.log(placeStr);
+    var query;
+    if (req.params.isCounty === 'yes') {
+        placeStr = parseInt(placeStr.substr(2));
+        console.log(placeStr);
+        query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[UrbanizedTAZs_VW] WHERE COUNTY_FIP = " + placeStr;
+        console.log(query);
+    } else {
+        query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[UrbanizedTAZs_VW] WHERE (ID = " + place + ")";
+    }
+    var request = new sql.Request(config.mssql.connection);
+    // var query = "SELECT ID, CityName, taz_key, WKT FROM CAPVMT.[UrbanizedTAZs_VW] WHERE (ID = " + place + ")";
     request.query(query, function(err, vmtutaz) {
         if (err) {
             return handleError(res, err);

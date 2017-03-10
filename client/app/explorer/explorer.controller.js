@@ -2,7 +2,7 @@
 
 
 angular.module('capvmtApp')
-    .controller('ExplorerCtrl', function ($scope, mapdata, places) {
+    .controller('ExplorerCtrl', function($scope, mapdata, places) {
         var features = [];
         var obj;
         var gmap;
@@ -16,7 +16,7 @@ angular.module('capvmtApp')
         /**
          * Clears the map contents.
          */
-        $scope.clearMap = function () {
+        $scope.clearMap = function() {
             var i;
             for (i in features) {
                 if (features.hasOwnProperty(i)) {
@@ -25,156 +25,167 @@ angular.module('capvmtApp')
             }
             features.length = 0;
         };
-        
+
         /**
          * Maps the current contents of the textarea.
          * @return  {Object}    Some sort of geometry object
          */
-        $scope.mapIt = function (ft) {
+        $scope.mapIt = function(ft) {
             $scope.clearMap();
             wkt = new Wkt.Wkt();
             //$scope.mappedFeature = [];
-            
+
             var placeID = $scope.selectedCity[0].id;
-            switch(ft){
-            	case 'taz':
-            	mapdata.getVMTtaz(placeID).success(function(response){
-                if (response.length > 0) {
-                        //do something here if needed...
-                        $scope.tazGeo = response;
-                		//console.log($scope.tazGeo[0].WKT);
-                		$scope.Jurisdiction = $scope.tazGeo[0].CityName;                		
-                    }
-                    for (var i = $scope.tazGeo.length - 1; i >= 0; i--) {
-                        if ($scope.tazGeo[i].WKT) {
-                              //$scope.mappedFeature.push($scope.tazGeo[0].WKT); 
-                              $scope.addToMap($scope.tazGeo[i].WKT);                             
-                                               
-                            }                            
-                        } 
-                
-                
-            }).error(function(error){
-                console.log(error);
-            });
-            //end of getVMTtaz
-            break;
-            case 'utaz':
-            mapdata.getVMTurbantaz(placeID).success(function(response){
-                if (response.length > 0) {
-                        //do something here if needed...
-                        $scope.tazGeo = response;
-                		//console.log($scope.tazGeo[0].WKT); 
-                		$scope.Jurisdiction = $scope.tazGeo[0].CityName;                		
-                    }
-                    for (var i = $scope.tazGeo.length - 1; i >= 0; i--) {
-                        if ($scope.tazGeo[i].WKT) {
-                              //$scope.mappedFeature.push($scope.tazGeo[0].WKT); 
-                              $scope.addToMap($scope.tazGeo[i].WKT);                             
-                                               
-                            }                            
-                        } 
-                
-                
-            }).error(function(error){
-                console.log(error);
-            });
-            //end of getVMTutaz
-            break;
-            case 'place':
-            mapdata.getVMTplace(placeID).success(function(response){
-                if (response.length > 0) {
-                        //do something here if needed...
-                        $scope.tazGeo = response;
-                		//console.log($scope.tazGeo[0].WKT);
-                		$scope.Jurisdiction = $scope.tazGeo[0].CityName;                 		
-                    }
-                    for (var i = $scope.tazGeo.length - 1; i >= 0; i--) {
-                        if ($scope.tazGeo[i].WKT) {
-                              //$scope.mappedFeature.push($scope.tazGeo[0].WKT); 
-                              $scope.addToMap($scope.tazGeo[i].WKT);                             
-                                               
-                            }                            
-                        } 
-                
-                
-            }).error(function(error){
-                console.log(error);
-            });
-            //end of getVMTplace
-            break;
+            var isCounty = 'no';
+            var countyList = ['6001', '6013', '6041', '6055', '6075', '6081', '6085', '6095', '6097'];
+
+            for (var index = 0; index < countyList.length; index++) {
+                if (countyList[index] === placeID) {
+                    isCounty = 'yes';
+                }
+
             }
 
-            
-            
-            
-                   
-            
+            if (placeID)
+                switch (ft) {
+                    case 'taz':
+                        mapdata.getVMTtaz(placeID, isCounty).success(function(response) {
+                            if (response.length > 0) {
+                                //do something here if needed...
+                                $scope.tazGeo = response;
+                                //console.log($scope.tazGeo[0].WKT);
+                                $scope.Jurisdiction = $scope.tazGeo[0].CityName;
+                            }
+                            for (var i = $scope.tazGeo.length - 1; i >= 0; i--) {
+                                if ($scope.tazGeo[i].WKT) {
+                                    //$scope.mappedFeature.push($scope.tazGeo[0].WKT); 
+                                    $scope.addToMap($scope.tazGeo[i].WKT);
+
+                                }
+                            }
+
+
+                        }).error(function(error) {
+                            console.log(error);
+                        });
+                        //end of getVMTtaz
+                        break;
+                    case 'utaz':
+                        mapdata.getVMTurbantaz(placeID, isCounty).success(function(response) {
+                            if (response.length > 0) {
+                                //do something here if needed...
+                                $scope.tazGeo = response;
+                                //console.log($scope.tazGeo[0].WKT); 
+                                $scope.Jurisdiction = $scope.tazGeo[0].CityName;
+                            }
+                            for (var i = $scope.tazGeo.length - 1; i >= 0; i--) {
+                                if ($scope.tazGeo[i].WKT) {
+                                    //$scope.mappedFeature.push($scope.tazGeo[0].WKT); 
+                                    $scope.addToMap($scope.tazGeo[i].WKT);
+
+                                }
+                            }
+
+
+                        }).error(function(error) {
+                            console.log(error);
+                        });
+                        //end of getVMTutaz
+                        break;
+                    case 'place':
+                        mapdata.getVMTplace(placeID).success(function(response) {
+                            if (response.length > 0) {
+                                //do something here if needed...
+                                $scope.tazGeo = response;
+                                //console.log($scope.tazGeo[0].WKT);
+                                $scope.Jurisdiction = $scope.tazGeo[0].CityName;
+                            }
+                            for (var i = $scope.tazGeo.length - 1; i >= 0; i--) {
+                                if ($scope.tazGeo[i].WKT) {
+                                    //$scope.mappedFeature.push($scope.tazGeo[0].WKT); 
+                                    $scope.addToMap($scope.tazGeo[i].WKT);
+
+                                }
+                            }
+
+
+                        }).error(function(error) {
+                            console.log(error);
+                        });
+                        //end of getVMTplace
+                        break;
+                }
+
+
+
+
+
+
         };
 
-        $scope.addToMap = function(layer){
-				//console.log(layer);
-                
-                try{
-					wkt.read(layer);
-                } catch (e1){
-                    try {
-                        wkt.read(el.value.replace('\n', '').replace('\r', '').replace('\t', ''));
-						console.log(el);
-                    } catch (e2) {
-                        if (e2.name === 'WKTError') {
-                            alert('Wicket could not understand the WKT string you entered. Check that you have parentheses balanced, and try removing tabs and newline characters.');
-                            return;
-                        }
+        $scope.addToMap = function(layer) {
+            //console.log(layer);
+
+            try {
+                wkt.read(layer);
+            } catch (e1) {
+                try {
+                    wkt.read(el.value.replace('\n', '').replace('\r', '').replace('\t', ''));
+                    console.log(el);
+                } catch (e2) {
+                    if (e2.name === 'WKTError') {
+                        alert('Wicket could not understand the WKT string you entered. Check that you have parentheses balanced, and try removing tabs and newline characters.');
+                        return;
                     }
                 }
-                
-                obj = wkt.toObject(gmap.defaults); // Make an object
-                
-                if (Wkt.isArray(obj)) { // Distinguish multigeometries (Arrays) from objects
+            }
+
+            obj = wkt.toObject(gmap.defaults); // Make an object
+
+            if (Wkt.isArray(obj)) { // Distinguish multigeometries (Arrays) from objects
                 console.log("This object is an array...");
                 for (i in obj) {
                     if (obj.hasOwnProperty(i) && !Wkt.isArray(obj[i])) {
                         //obj[i].setEditable(false);
                         obj[i].setMap(gmap);
                         features.push(obj[i]);
-						//get the extent of the features
-                        if(wkt.type === 'point' || wkt.type === 'multipoint')
-                        	bounds.extend(obj[i].getPosition());
+                        //get the extent of the features
+                        if (wkt.type === 'point' || wkt.type === 'multipoint')
+                            bounds.extend(obj[i].getPosition());
                         else
-                        	console.log("This is a multi-part polygon...")
-                        	obj[i].getPath().forEach(function(element,index){bounds.extend(element)});
+                            console.log("This is a multi-part polygon...")
+                        obj[i].getPath().forEach(function(element, index) { bounds.extend(element) });
                     }
                 }
-                
+
                 features = features.concat(obj);
                 features.push(obj);
-                
+
 
             } else {
-            	
-            	//obj.setEditable(false);
+
+                //obj.setEditable(false);
                 obj.setMap(gmap); // Add it to the map
-				
+
                 features.push(obj);
 
-                if(wkt.type === 'point' || wkt.type === 'multipoint')
-                	bounds.extend(obj.getPosition());
+                if (wkt.type === 'point' || wkt.type === 'multipoint')
+                    bounds.extend(obj.getPosition());
                 else
-                	obj.getPath().forEach(function(element,index){bounds.extend(element)});
-                
+                    obj.getPath().forEach(function(element, index) { bounds.extend(element) });
+
             }
-			
-             // Pan the map to the feature
+
+            // Pan the map to the feature
             gmap.fitBounds(bounds);
 
-                return obj;
+            return obj;
         };
         /**
          * Application entry point.
          * @return  {<google.maps.Map>} The Google Maps API instance
          */
-        $scope.initMap = function () {
+        $scope.initMap = function() {
             //gmap;
 
             gmap = new google.maps.Map(document.getElementById('canvas'), {
@@ -204,7 +215,7 @@ angular.module('capvmtApp')
                 }
             });
 
-            google.maps.event.addListener(gmap, 'tilesloaded', function () {
+            google.maps.event.addListener(gmap, 'tilesloaded', function() {
                 if (!gmap.loaded) {
                     gmap.loaded = true;
                     //Load WKT Features to map

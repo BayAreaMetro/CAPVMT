@@ -2,7 +2,7 @@
 (function() {
 
     class FeedbackComponent {
-        constructor($http, $scope) {
+        constructor($http, $scope, $timeout) {
             this.message = 'Hello';
             $scope.submitFeedbackSuccess = false;
             $scope.submitFeedbackFail = false;
@@ -13,14 +13,22 @@
                         if (response.status === 'success') {
                             $scope.submitFeedbackSuccess = true;
                             $scope.submitFeedbackFail = false;
+
+                            $timeout(dismissNotice, 3000);
                         }
                     }).error(function(err) {
                         if (err) {
                             $scope.submitFeedbackFail = true;
                             $scope.submitFeedbackSuccess = false;
+                            $timeout(dismissNotice, 3000);
                         }
                     });
             };
+
+            function dismissNotice() {
+                $scope.submitFeedback = false;
+                $scope.submitFeedbackFail = false;
+            }
         }
     }
 
