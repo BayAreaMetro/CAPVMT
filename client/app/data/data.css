@@ -1,10 +1,11 @@
-select, select.form-control {
+select,
+select.form-control {
     border: 0;
     border-radius: 4px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    padding: 2px 14px;    
+    padding: 2px 14px;
     margin-left: 10px;
     /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
     */
@@ -22,4 +23,23 @@ select, select.form-control {
 
 .autoTH {
     width: auto !important;
+}
+
+.verticalLine {
+    border-left: thick solid #ff0000;
+    height: 10px;
+}
+
+.tableProperties {
+    max-width: 1500px;
+    min-width: 600px;
+    margin: auto;
+}
+
+.verticalLeft {
+    border-left: 1px solid lightgray;
+}
+
+.verticalRight {
+    border-right: 1px solid lightgray;
 }
