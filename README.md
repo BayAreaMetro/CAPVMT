@@ -17,6 +17,8 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 1. Run `npm install` to install server dependencies.
 
+if this fails, might need to set python version: https://stackoverflow.com/questions/20454199/how-to-use-a-different-version-of-python-during-npm-install
+
 2. Run `bower install` to install front-end dependencies.
 
 3. Run `mongod` in a separate shell to keep an instance of the MongoDB Daemon running
