@@ -4,10 +4,12 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 ## Getting Started / Web Development  
 
+Note, the Node version required by this app is 4.2.3. Newer versions of node will not build the dependencies succesfully. We recommend using [NVM](https://github.com/creationix/nvm) or similar. 
+
 ### Prerequisites
 
 - [Git](https://git-scm.com/)
-- [Node.js and npm](nodejs.org) Node ^4.2.3, npm ^2.14.7
+- [Node.js and npm](nodejs.org) *Node ^4.2.3, npm ^2.14.7*
 - [Bower](bower.io) (`npm install --global bower`)
 - [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)
 - [MongoDB](https://www.mongodb.org/) - Keep a running daemon with `mongod`
