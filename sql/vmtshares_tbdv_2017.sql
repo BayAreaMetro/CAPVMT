@@ -3,7 +3,7 @@
 -- Create date: December 29, 2014
 -- Description:	VMT Shares
 -- =============================================
-CREATE PROCEDURE [CAPVMT].[vmtshares_DBA_2017]
+ALTER PROCEDURE [CAPVMT].[vmtshares_DBA_2017]
 	-- Add the parameters for the stored procedure here
 	@placeid nvarchar(255),
 	@tazlist nvarchar(MAX),
@@ -37,6 +37,11 @@ BEGIN
 	BEGIN
 	  SELECT @persons_table = '[CAPVMT].[persons_2005_05_YYY]';
 	  SELECT @vmt_table = '[CAPVMT].[vmt_2005_05_YYY]';
+	END
+	IF @modelrun = '2015_06_YYY'
+	BEGIN
+	  SELECT @persons_table = '[CAPVMT].[persons_2015_06_YYY]';
+	  SELECT @vmt_table = '[CAPVMT].[vmt_2015_06_YYY]';
 	END
 	ELSE IF @modelrun = '2020_06_694'
 	BEGIN
