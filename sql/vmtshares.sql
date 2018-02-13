@@ -28,15 +28,45 @@ BEGIN
 
 
     -- just being ABSOLUTELY SURE that modelrun is AOK
-	IF @modelrun = '2010_03_YYY'
+	IF @modelrun = '2010_06_YYY'
+	BEGIN
+	  SELECT @persons_table = '[CAPVMT].[persons_2010_06_YYY]';
+	  SELECT @vmt_table = '[CAPVMT].[vmt_2010_06_YYY]';
+	END
+	ELSE IF @modelrun = '2005_05_YYY'
+	BEGIN
+	  SELECT @persons_table = '[CAPVMT].[persons_2005_05_YYY]';
+	  SELECT @vmt_table = '[CAPVMT].[vmt_2005_05_YYY]';
+	END
+	ELSE IF @modelrun = '2015_06_YYY'
+	BEGIN
+	  SELECT @persons_table = '[CAPVMT].[persons_2015_06_YYY]';
+	  SELECT @vmt_table = '[CAPVMT].[vmt_2015_06_YYY]';
+	END
+	ELSE IF @modelrun = '2020_06_694'
+	BEGIN
+	  SELECT @persons_table = '[CAPVMT].[persons_2020_06_694]';
+	  SELECT @vmt_table = '[CAPVMT].[vmt_2020_06_694]';
+	END
+	ELSE IF @modelrun = '2030_06_694_Amd1'
+	BEGIN
+	  SELECT @persons_table = '[CAPVMT].[persons_2030_06_694_Amd1]';
+	  SELECT @vmt_table = '[CAPVMT].[vmt_2030_06_694_Amd1]';
+	END
+	ELSE IF @modelrun = '2040_06_694_Amd1'
+	BEGIN
+	  SELECT @persons_table = '[CAPVMT].[persons_2040_06_694_Amd1]';
+	  SELECT @vmt_table = '[CAPVMT].[vmt_2040_06_694_Amd1]';
+	END
+	ELSE IF @modelrun = '2010_03_YYY'
 	BEGIN
 	  SELECT @persons_table = '[CAPVMT].[persons_2010_03_YYY]';
 	  SELECT @vmt_table = '[CAPVMT].[vmt_2010_03_YYY]';
 	END
 	ELSE IF @modelrun = '2005_03_YYY'
 	BEGIN
-	  SELECT @persons_table = '[CAPVMT].[persons_2005_05_YYY]';
-	  SELECT @vmt_table = '[CAPVMT].[vmt_2005_03_YYY]';
+	  SELECT @persons_table = '[CAPVMT].[persons_2005_03_YYY]';
+	  SELECT @vmt_table = '[CAPVMT].[vmt_2005_05_YYY]';
 	END
 	ELSE IF @modelrun = '2020_03_116'
 	BEGIN
