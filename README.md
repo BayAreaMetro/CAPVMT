@@ -34,4 +34,4 @@ Run `grunt build` for building and `grunt serve` for preview.
 
 ## Data Updates
 
-see the readme in the sql folder
+see the readme in the [sql folder](https://github.com/BayAreaMetro/CAPVMT/blob/Development/sql/readme.md)
