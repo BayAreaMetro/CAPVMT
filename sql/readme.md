@@ -63,5 +63,3 @@ the /sql folder contains sql scripts used to create and update the data presente
 
 `update_vmtresults_table_2017.sql` - this script populates the table that `CAPVMT.VMT_Results` depends on
 
-#### Other
-
