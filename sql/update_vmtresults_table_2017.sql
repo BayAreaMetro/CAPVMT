@@ -48,11 +48,11 @@ while (1=1)
 		print @sql
 		exec sp_executesql @sql
 
-		set @sql= '[CAPVMT].[vmtshares_DBA_2017] ' +cast(@placeid as nvarchar(255))+', '''+@tazlist+''', ''2030_06_694'''
+		set @sql= '[CAPVMT].[vmtshares_DBA_2017] ' +cast(@placeid as nvarchar(255))+', '''+@tazlist+''', ''2030_06_694_Amd1'''
 		print @sql
 		exec sp_executesql @sql
 
-		set @sql= '[CAPVMT].[vmtshares_DBA_2017] ' +cast(@placeid as nvarchar(255))+', '''+@tazlist+''', ''2040_06_694'''
+		set @sql= '[CAPVMT].[vmtshares_DBA_2017] ' +cast(@placeid as nvarchar(255))+', '''+@tazlist+''', ''2040_06_694_Amd1'''
 		print @sql
 		exec sp_executesql @sql
 
@@ -108,11 +108,11 @@ while (1=1)
 		print @sql
 		exec sp_executesql @sql
 
-		set @sql= '[CAPVMT].[vmtshares_DBA] ' +cast(@placeid as nvarchar(255))+', '''+@tazlist+''', ''2030_06_694'''
+		set @sql= '[CAPVMT].[vmtshares_DBA] ' +cast(@placeid as nvarchar(255))+', '''+@tazlist+''', ''2030_06_694_Amd1'''
 		print @sql
 		exec sp_executesql @sql
 
-		set @sql= '[CAPVMT].[vmtshares_DBA] ' +cast(@placeid as nvarchar(255))+', '''+@tazlist+''', ''2040_06_694'''
+		set @sql= '[CAPVMT].[vmtshares_DBA] ' +cast(@placeid as nvarchar(255))+', '''+@tazlist+''', ''2040_06_694_Amd1'''
 		print @sql
 		exec sp_executesql @sql
 
