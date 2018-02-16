@@ -12,9 +12,11 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 NOTE: the Node version required by this app is 4.2.3. Newer versions of node will not build the dependencies succesfully. We recommend using [NVM](https://github.com/creationix/nvm) or similar. 
 
 - [Bower](bower.io) (`npm install --global bower`)
-- [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)
+- [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)  
 ~~[MongoDB](https://www.mongodb.org/) - Keep a running daemon with `mongod`~~?
 - [SQL Server 2012] - this is how the data for the application is hosted
+
+Example local sql server config file: https://github.com/BayAreaMetro/CAPVMT/blob/master/server/config/local.env.sample.js
 
 ### Developing the Web Application. 
 
