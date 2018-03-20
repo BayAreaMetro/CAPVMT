@@ -35,13 +35,12 @@ exports.index = function (req, res) {
             }
             res.status(200).json(places);
         });
-
     }
     //Selects Corrrespondence between Places and TAZs (1454).  Does not include whole counties, only the CDPs and County Remainder areas.
 exports.placeTAZ1454 = function (req, res) {
         //http://localhost:9000/api/places
         var request = new sql.Request(config.mssql.connection);
-        var query = "SELECT * FROM CAPVMT.Place_TAZ1454_Correspondence";
+        var query = "SELECT * FROM Place_TAZ1454_Correspondence";
         request.query(query, function (err, places) {
             if (err) {
                 return handleError(res, err);
@@ -57,7 +56,7 @@ exports.placeTAZ1454 = function (req, res) {
 exports.placeTAZ = function (req, res) {
     //http://localhost:9000/api/places
     var request = new sql.Request(config.mssql.connection);
-    var query = "SELECT * FROM CAPVMT.Place_TAZ_Correspondence";
+    var query = "SELECT * FROM Place_TAZ_Correspondence";
     request.query(query, function (err, places) {
         if (err) {
             return handleError(res, err);

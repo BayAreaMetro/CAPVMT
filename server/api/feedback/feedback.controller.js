@@ -97,17 +97,6 @@ export function create(req, res) {
         res.status(200).json({ status: 'success' });
     }); //issue
 
-    // var query = "SELECT ID, CityName, County, WKT FROM CAPVMT.[Places_VW] WHERE (ID = " + place + ")";
-    // request.query(query, function(err, vmtplace) {
-    //     if (err) {
-    //         return handleError(res, err);
-    //     }
-    //     if (!vmtplace) {
-    //         return res.status(404).send('Not Found');
-    //     }
-    //     res.status(200).json(vmtplace);
-    // });
-
 }
 
 // Updates an existing Feedback in the DB
