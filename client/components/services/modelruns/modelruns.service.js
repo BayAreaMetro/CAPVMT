@@ -4,7 +4,7 @@ angular.module('capvmtApp')
   .service('modelruns', function ($http) {
     var urlBase = '/api/modelruns';
     var mr = [{
-                    mr: "2005_05_YYY"
+                    mr: "2005_05_003"
                 }];
 
     this.getModelRuns = function () {
