@@ -1,65 +1,28 @@
-### 2013 Plan Data
+# Processing Model VMT Data
+The process described here takes various inputs (travel model outputs and correspondence tables), processes them through a single Python script, and produces a `vmt_results` table that can then used in the CAPVMT web application. 
 
-2013 Plan data is hosted on the `CAPVMT` database under the `CAPVMT` schema in the following tables:  
+![](process_diagram.png)
 
-```
-persons_2005_03_YYY
-vmt_2005_03_YYY
-persons_2010_03_YYY
-vmt_2010_03_YYY
-persons_2020_03_116
-vmt_2020_03_116
-persons_2030_03_116
-vmt_2030_03_116
-persons_2040_03_116
-vmt_2040_03_116
-```
+View this diagram on [Lucid Charts](https://lucid.app/lucidchart/invitations/accept/inv_bc054da4-9c57-4e8b-a732-eb8aa6a4ccab).
 
-Stored producedures and queries are used to produce view referenced in the queries that result in the tables found in the application front end. For convenience, and in order to determine which tables we need to rebuild, all queries to the database are pulled out and listed below:
+## Inputs
 
-```
-dbo.County_Code_LU
-Place_Lookup
-Place_Lookup
-VMT_Results 
-CAPVMT.[PLACES_WGS84]
-CAPVMT.[TAZ_PLACES_WGS84]
-CAPVMT.[URBANTAZS_WGS84]
-ScenarioYear 
-VMT_Results 
-```
+### Model Outputs
+- `persons_YYYY_MV_MVV` and `vmt_YYYY_MV_MVV`: These are outputs from the travel model and are also known as `AutoTripsVMT_personsHomeWork.csv` and `AutoTripsVMT_perOrigDestHomeWork.csv` respectively. The script `copy_model_output.sh` provides an automated way to copy these files directly from the model directory folder. For further information about these model outputs, please view their documentation here: https://github.com/BayAreaMetro/travel-model-one/tree/master/utilities/VMT%20Shares
 
-### 2017 Plan Data. 
+### Correspondence Tables
+- `TAZ / Places Correspondence Table`: This is a correspondence table that matches place id's (typically cities) to strings that contain a comma separated list of TAZ in that place id.
+- `TAZ / County Correspondence Table`: This is a correspondence table that matches county id's to strings that contain a comma separated list of TAZ in that county.
+- `Place Name Lookup Table`: This is a table that matches a place or county id to the name of that place or county. 
 
-2017 Plan data is hosted on the `CAPVMT` database under the `CAPVMT` schema in the following tables:    
+## Processing Script
+The single script `vmt-results-etl.py` performs all processing operations. The script processes each model run in parallel to decrease runtime. The script should take approximately 15 - 20 minutes to to process 6 model run scenarios. 
 
-```
-persons_2005_05_YYY
-vmt_2005_05_YYY
-persons_2010_06_YYY
-vmt_2010_06_YYY
-persons_2015_06_YYY
-vmt_2015_06_YYY
-persons_2020_06_694
-vmt_2020_06_694
-persons_2030_06_694
-vmt_2030_06_694
-persons_2040_06_694
-vmt_2040_06_694
-```
+This Python script replaces a series of SQL scripts that were used in previous years to perform this processing task. The SQL scripts were rewritten into Python for improved performance, readability, and maintainability. The following SQL scripts are replaced by this single Python script:
+1. `vmtshares.sql`
+2. `update_vmtresults_table_2017.sql`
+3. `main_views.sql`
+4. `update_model_name_suffix.sql`
 
-### SQL Update Procedures & Scripts. 
-
-the /sql folder contains sql scripts used to create and update the data presented on the main data portal.
-
-`vmtshares.sql` - this script takes a taz list and a model run number (and a place id) and returns a vmt results table
-
-#### 2013 Data
-
-`main_views.sql` - these are the views that are queried from the web application (by [this controller](https://github.com/BayAreaMetro/CAPVMT/blob/Development/client/app/data/data.controller.js))  
-`update_vmtresults_table_2013.sql` - this script populates the main vmt table that `CAPVMT.VMT_Results` depends on
-
-#### 2017 Data
-
-`update_vmtresults_table_2017.sql` - this script populates the table that `CAPVMT.VMT_Results` depends on
-
+## Outputs
+The `vmt_results` output from this script contains a table that can be copied into a database and queried by the CAPVMT web application. It contains, for each place (i.e. city or county), the VMT associated with that place split based on live/work location, and whether the VMT is calculated inside, partially inside, or outside the place area.
